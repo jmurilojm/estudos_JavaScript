@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Declarações</title>
+</head>
+
+<body>
+  <h1>O que é Declaração?</h1>
+  <hr>
+
+  <p id="texto"></p>
+
+<script>
+  /*tudo em JS é uma declaração*/
+  let a, b, c;
+  a = 3;
+  b = 5;
+  c = a + b;
+  
+  console.log(c);
+  document.getElementById('texto').innerHTML = 'Tudo em JS é uma declaração.';
+  funcaoExemplo();
+  
+  
+  
+  function funcaoExemplo(){
+    console.log('Esta frase vem de uma função que também é uma declaração no JS');
+  };
+  
+</script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For</title>
+</head>
+
+<body>
+  <h1>Laço de Repetição - FOR</h1>
+  <hr>
+
+  <p id="saida"></p>
+
+  <select name="" id="ano">
+    <option value="" selected disabled>Escolha o ano</option>
+  </select>
+  
+  <p id="itensArray"></p>
+
+
+
+
+
+  <script>
+    //imprimindo um certo total de números em tela 
+    let quantidade = 10;
+    for (let x = 0; x < (quantidade + 1); x++) {
+      document.getElementById('saida').innerHTML += x + ', ';
+    }
+
+    //criando um for para anos em uma tag select
+    var anoAtual = new Date().getFullYear();
+    for (let a = anoAtual; a >= 1900; a--) {
+      let ano = document.getElementById('ano');
+
+      ano.innerHTML += '<option value="' + a + '">' + a + '</option>';
+    }
+    
+    //imprimindo itens de um array
+    let array = ['a','b','c'];
+    for (let i = 0; i < array.length; i++) {
+      document.getElementById('itensArray').innerHTML += array[i] + ' - ';
+    }
+  </script>
+</body>
+
+</html>

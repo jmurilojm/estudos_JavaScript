@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Condicionais</title>
+</head>
+
+<body>
+  <h1>Condicionais: If e Else</h1>
+  <hr>
+  <p>Importante para validação de Formulários</p>
+  
+  <p id="confirmacao"></p>
+  
+  <input type="text" name="" id="campo">
+  <button onclick="verificar()" type="button">Verificar</button>
+  
+
+
+
+
+<script>
+  var lampada = 'on';
+  var hora = new Date().getHours();
+  
+
+  if(lampada == 'on'){
+    console.log('Ligada');
+  } else{
+    console.log('Desligada')
+  }
+  
+  console.log(hora)
+  if(hora >= 18){
+    console.log('Boa noite!');
+  } else if(hora < 18 && hora >= 12){
+    console.log('Boa tarde!');
+  } else {
+    console.log('Bom dia!');
+  }
+  
+  function verificar(){
+    let campo = document.getElementById('campo');
+    let confirmacao = document.getElementById('confirmacao');
+    
+    if(campo.value == ''){
+      confirmacao.innerHTML = 'Preecha o campo abaixo.';
+      confirmacao.style.color = 'red';
+    } else {
+      confirmacao.innerHTML = 'Confirmado!';
+      confirmacao.style.color = 'green';
+    }
+  }
+</script>
+</body>
+
+</html>

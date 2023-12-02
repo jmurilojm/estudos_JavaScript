@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variáveis</title>
+</head>
+
+<body>
+  <h1>Var, Let e Const</h1>
+  <hr>
+
+
+
+<script>
+  /*
+  var: pode ser utilizado em qualquer parte do código e permite ser re-declarada.
+  
+  let: nao permite ser re-declarada.
+  */
+  
+  var a = 4;
+  var b = 8;
+  var c = a + b;
+  console.log(c);//resultado: 12
+  
+  var d, e, f, g, h, i, j;
+  d = 7;
+  e = 9;
+  f = d + e;
+  console.log(f);//resultado: 16
+  console.log(g);//resultado: undefined
+  
+  h = j + i;//resultado: NaN
+  console.log(h)
+  
+  var nome, sobrenome, nomeCompleto;
+  nome = 'Fulano';
+  sobrenome = 'de Tal';
+  nomeCompleto = nome + ' ' + sobrenome;
+  console.log(nomeCompleto);
+  
+  //concatenação interessante
+  var palavra, numero;
+  palavra = 'abc';
+  numero = 10;
+  console.log(numero + palavra);
+  console.log(numero + 5 + palavra);
+  console.log(palavra + 5 + numero);/*entendeu tudo como string porque a primeira variavel é uma string*/
+  
+  var x = 3;
+  var x = 7;
+  console.log(x);
+  
+  let y = 5;
+  //let y = 8;//re-declaracao. Não é permitida.
+  console.log(y);
+  
+  
+  
+  //entendendo o escopo de variáveis
+  var z = 1;
+  let w = 1;
+  const k = 10;
+  {
+    var z = 2;//está re-declarando
+    let w = 2;//o let nao aceita re-declaracao
+    const k = 3;
+  }
+  
+  console.log(z);
+  console.log(w);
+  console.log(k);
+</script>
+</body>
+
+</html>
