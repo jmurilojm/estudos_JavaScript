@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>loop_for</title>
+</head>
+
+<body>
+
+<script>
+  // loop_for.js
+  
+  const tam = 3
+  for (let i = 0; i < tam; i++){
+    console.log(i)
+  }// cria a quantidade especificada
+  
+  let cont = 0
+  for (cont; cont < 3; cont++){
+    console.log('Cont =',cont + 1)
+  }
+  
+  const lista = ['a','b','c']
+  for (let i = 0; i < lista.length; i++){
+    console.log(lista[i])
+  }// itera ate o tamanho da lista
+  
+  for (i in lista){
+    console.log(i,lista[i])
+  }// itera a lista e mostra o índice 
+  
+  for (i of lista){
+    console.log(i)
+  }// itera a lista e mostra o elemento
+  
+  const num = []
+  for (let i = 0; i < 5; i++){
+    num.push(i * 2)
+  }// itera, cria e add a uma lista
+  console.log(num)
+  
+  
+  // for dentro de outro for
+  for (let i = 0; i < 3; i++){
+    for (let k = 0; k < 3; k++){
+      console.log(`i = ${i} | k = ${k}`)
+    }
+  }
+</script>
+</body>
+
+</html>
