@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Usando o forEach</h1>
+  <hr>
+
+  <p>Exibição de vetor</p>
+
+  <button onclick="busca()" type="button">Exibir</button>
+
+  <p id="resultado"></p>
+
+
+
+
+
+
+  <script>
+    function busca() {
+      const lista = [15, 20, 25, 30, 35, 40, 45, 50];
+      let achado = '';
+      lista.forEach(laco);
+      document.getElementById('resultado').innerHTML = achado;
+
+
+      let n;
+      function laco(n){
+        achado += n + '<br>';
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Buscar Item em Lista - 1</h1>
+  <hr>
+  
+  <p>Informe o número:</p>
+  <input type="number" name="numero" id="numero">
+  
+  <button onclick="busca()" type="button">Buscar</button>
+  
+  <p id="resultado"></p>
+
+
+
+
+
+
+<script>
+  function busca(){
+    const lista = [10, 15, 20, 25, 30, 35, 40, 45, 50];
+    let numero = document.getElementById('numero').value;
+    let achado = '';
+    
+    
+    for(let item in lista){
+      if(lista[item] == numero){
+        achado = lista[item] + '<br>';
+      }
+    }
+    
+    document.getElementById('resultado').innerHTML = achado;
+  }
+</script>
+</body>
+
+</html>

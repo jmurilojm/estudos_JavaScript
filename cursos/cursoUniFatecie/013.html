@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Lista</h1>
+  <hr>
+  
+  <p>Vogais:</p>
+  <p id="vogais"></p>
+  <p>Números</p>
+  <p id="numeros"></p>
+  <p>Estados</p>
+  <p id="estados"></p>
+
+
+
+
+
+<script>
+  const vogais = ['A', 'E', 'I', 'O', 'U'];
+  document.getElementById('vogais').innerHTML = vogais;
+  
+  const numeros = [];
+  numeros[0] = 10;
+  numeros[1] = 200;
+  numeros[2] = 3000;
+  document.getElementById('numeros').innerHTML = numeros;
+  
+  const estados = ['Paraiba', 'Pernambuco', 'Ceara']
+  document.getElementById('estados').innerHTML = '<li>' + estados[0] + '<li>' + estados[1] + '<li>' + estados[2];
+</script>
+</body>
+
+</html>

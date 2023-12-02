@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Média Escolar</title>
+</head>
+
+<body>
+  <h1>Cálculo de Média</h1>
+  <hr>
+  
+  <p>1⁰ Bimestre:</p>
+  <input type="number" name="" id="bi_1" placeholder="0">
+  <p>2⁰ Bimestre</p>
+  <input type="number" name="" id="bi_2" placeholder="0">
+  <p>3⁰ Bimestre</p>
+  <input type="number" name="" id="bi_3" placeholder="0">
+  <p>4⁰ Bimestre</p>
+  <input type="number" name="" id="bi_4" placeholder="0">
+  
+  <br><br>
+  
+  <button onclick="media()" type="button">Calcular</button>
+  <p id="resultado"></p>
+  
+  
+  
+  <script>
+    document.getElementById('resultado').innerHTML = 'Média: 0.0' + '<br>Situação: --------';
+    
+    function media(){
+      let b1 = document.getElementById('bi_1').value;
+      let b2 = document.getElementById('bi_2').value;
+      let b3 = document.getElementById('bi_3').value;
+      let b4 = document.getElementById('bi_4').value;
+      
+      let media = (Number(b1) + Number(b2) + Number(b3) + Number(b4)) / 4;
+      let situacao = (media >= 7.0) ? 'Aprovado' : 'Reprovado';
+      
+      document.getElementById('resultado').innerHTML = 'Média: ' + media.toFixed(1) + '<br>Situação: ' + situacao;
+    }
+    
+  </script>
+
+</body>
+
+</html>

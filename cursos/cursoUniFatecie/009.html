@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>009</title>
+</head>
+
+<body>
+  <h1>JavaScript - 009</h1>
+  <hr>
+  
+  <p>Sua idade:</p>
+  <input type="number" name="" id="idade" placeholder="0">
+  
+  <button onclick="verificar()" type="button">Verificar idade</button>
+  
+  <p id="resultado"></p>
+  
+  <script>
+    function verificar(){
+      let idade = document.getElementById('idade').value;
+      document.getElementById('resultado').innerHTML = (idade >= 18) ? 'Maior' : 'Menor';
+    }
+  </script>
+
+</body>
+
+</html>

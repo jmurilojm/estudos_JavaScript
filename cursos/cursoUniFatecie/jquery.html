@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JQuery</title>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('button').click(function(){
+        $(this).hide();
+      });
+      
+      $('p').click(function(){
+        $(this).hide();
+      });
+      
+      $('h4').click(function(){
+        $('#outro').hide();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Usando o JQuery</h1>
+  <hr>
+  
+  <h4 id="outro">Outro</h4>
+  <button type="button">Clicar</button>
+  <p>CLICAR</p>
+  
+
+</body>
+
+</html>

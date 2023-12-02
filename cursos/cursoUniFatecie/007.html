@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>007</title>
+</head>
+
+<body>
+
+  <h2>JavaScript - Exemplo 007</h2>
+  <hr>
+  
+  <p id="ex007_1"></p>
+  <p id="ex007_2"></p>
+  <p id="ex007_3"></p>
+  <p id="ex007_4"></p>
+
+  <script>
+    let altura = 1.67
+    var peso = 79
+    let cadastro = {Nome: 'Fulano', Sobrenome: 'Cicrano'}
+    
+    document.getElementById('ex007_1').innerHTML = cadastro.Nome + ' ' + cadastro.Sobrenome;
+    document.getElementById('ex007_2').innerHTML = 'Peso: ' + peso;
+    document.getElementById('ex007_3').innerHTML = 'Altura: ' + altura;
+    
+    IMC = peso / (altura**2)
+    document.getElementById('ex007_4').innerHTML = 'IMC: ' + IMC;
+  </script>
+</body>
+
+</html>

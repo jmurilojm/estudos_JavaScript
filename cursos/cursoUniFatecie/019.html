@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>JSON</h1>
+  <hr>
+  
+  <h2>Consulta de estoque de veículo</h2>
+  
+  <p>Marca do veículo:</p>
+  <input type="text" name="" id="carro">
+  <button onclick="funcao()" type="button">Consultar</button>
+  
+  <p id="resultado"></p>
+
+
+
+
+
+
+
+<script>
+  function funcao(){
+    let carro = document.getElementById('carro').value;
+    let dados = '{"veiculos": ['+'{"marca": "Fiat", "modelo": "Uno", "ano": "1999"},'+'{"marca": "Volkswagem", "modelo": "Gol", "ano": "2023"},'+'{"marca": "Toyota", "modelo": "Etios", "ano": "2020"}]}';
+    
+    
+    const OBJ = JSON.parse(dados);
+    for(let i = 0; i <= 2; i++){
+      if(carro == OBJ.veiculos[i].marca){
+        document.getElementById('resultado').innerHTML = OBJ.veiculos[i].modelo + ' ' + OBJ.veiculos[i].ano;
+      }
+    }
+  }
+</script>
+</body>
+
+</html>

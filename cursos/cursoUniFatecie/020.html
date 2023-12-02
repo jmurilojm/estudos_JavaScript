@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Atualizando contato</h1>
+  <hr>
+  
+  <p id="contato"></p>
+  <p>Edição de dados em objeto</p>
+  
+  <br>
+  <p>Digite o novo telefone:</p>
+  <input type="number" name="tel" id="tel">
+  <button onclick="funcao()" type="button">Atualizar contato</button>
+  
+  <p id="informe"></p>
+  <p id="novo"></p>
+  
+
+
+
+
+
+
+
+
+<script>
+  const agenda = {nome: 'Fulano', fone: 9912345678};
+  document.getElementById('contato').innerHTML = agenda.nome + ' - ' + agenda.fone;
+  
+  
+
+  //atualizando dados de constantes
+  function funcao(){
+    agenda['fone'] = document.getElementById('tel').value;
+    
+    document.getElementById('informe').innerHTML = 'Contato atualizado!';
+    document.getElementById('novo').innerHTML = agenda.nome + ' - ' + agenda.fone;
+  }
+</script>
+</body>
+
+</html>

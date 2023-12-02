@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Área Cúbica</title>
+</head>
+
+<body>
+  <h1>Cálculo de Área Cúbica</h1>
+  <hr>
+  
+  <p>Altura:</p>
+  <input type="text" name="" id="altura" placeholder="0">
+  
+  <p>Largura:</p>
+  <input type="text" name="" id="largura" placeholder="0">
+  
+  <p>Comprimento:</p>
+  <input type="text" name="" id="comprimento" placeholder="0">
+  
+  <br><br>
+  
+  <button type="button" onclick="areaCubica(altura, largura, comprimento)">Calcular</button>
+  
+  <p id="resultado"></p>
+  
+  <script>
+    document.getElementById('resultado').innerHTML = 'Resultado: 0 m³';
+    
+    function areaCubica(){
+      let altura = document.getElementById('altura').value;
+      let largura = document.getElementById('largura').value;
+      let comprimento = document.getElementById('comprimento').value;
+      
+      document.getElementById('resultado').innerHTML = 'Resultado: ' + altura * largura * comprimento + ' m³';
+    }
+  </script>
+
+</body>
+
+</html>
