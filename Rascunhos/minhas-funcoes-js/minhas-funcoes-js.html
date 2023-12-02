@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha Funcoes JS</title>
+</head>
+
+<body>
+
+  <script>
+    function areaQuadrada(base, altura) {
+      return base * altura
+    }
+
+    function areaCubica(altura, largura, profundidade) {
+      return altura * largura * profundidade
+    }
+
+    function calcularEquacaoSegundoGrau(a, b, c) {
+      const delta = b ** 2 - 4 * a * c;
+
+      if (delta < 0) {
+        return 'Delta = Negativo';
+      } else {
+        const raizDelta = Math.sqrt(delta);
+
+        const x1 = (-b + raizDelta) / (2 * a);
+        const x2 = (-b - raizDelta) / (2 * a);
+
+        return [x1, x2];
+      }
+    }
+
+    function isPrimo(numero) {
+      let cont = 1
+      let divisores = false
+
+      while (cont <= numero) {
+        if (numero % cont == 0) {
+          divisores++
+        }
+        cont++
+      }
+
+      if (divisores == 2) {
+        return 'Este numero e primo'
+      } else {
+        return `Nao e primo. Este numero possui ${divisores} divisores.`
+      }
+    }
+
+
+
+
+    console.log(areaQuadrada(7, 5))
+    console.log(areaCubica(2, 2, 2))
+    console.log(equacaoSegundoGrau(3, -2, -8))
+    console.log(isPrimo(6))
+  </script>
+</body>
+
+</html>

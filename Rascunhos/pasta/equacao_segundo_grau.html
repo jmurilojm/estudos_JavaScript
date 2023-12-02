@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>equacao_segundo_grau</title>
+</head>
+
+<body>
+
+  <script>
+    //equacao_segundo_grau.js
+
+    function equacao_segundo_grau() {
+      a = 3
+      b = -2
+      c = -8
+
+      // ax**2 + bx + c
+
+      delta = b ** 2 - 4 * a * c
+      console.log('∆: ', delta)
+      if (delta >= 0) {
+        const raiz_de_delta = delta ** (.5)
+        console.log('Raiz de ∆: ', raiz_de_delta)
+
+        x1 = (-b + raiz_de_delta) / (2 * a)
+        console.log('X¹: ', x1)
+        x2 = (-b - raiz_de_delta) / (2 * a)
+        console.log('X²: ', x2)
+      } else {
+        console.log('Delta Negativo!')
+      }
+    }
+
+    equacao_segundo_grau()
+    
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>condicionais</title>
+</head>
+
+<body>
+
+<script>
+  // condicionais.js
+  
+  const idade = 15
+  
+  if (idade < 0){
+    console.log('Ainda nao nasceu')
+  } else if (idade == 0){
+    console.log('Nascendo agora')
+  } else if (idade >= 18){
+    console.log('Maior')
+  } else if (idade >=16 && idade < 18){
+    console.log('Adolescente')
+  } else {
+    console.log('Menor')
+  }
+  
+  
+  // com ternario
+  idade >= 18 ? console.log('Ja e de maior') : console.log('Ainda menor')
+  
+  const t = 18
+  const status = t >= 23 ? 'Quente' : 'Frio'
+  console.log(status)
+  
+  
+  // switch case
+  const opcao = 3
+  switch(opcao){
+    case 1:
+      console.log('Opcao 1 selecionada')
+      break
+    case 2:
+      console.log('Opcao 2 selecionada')
+      break
+    default:
+    console.log('Nenhuma das opções')
+  }
+</script>
+</body>
+
+</html>
