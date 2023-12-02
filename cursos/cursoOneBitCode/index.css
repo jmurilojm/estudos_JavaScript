@@ -1,0 +1,183 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+:root{
+  --cor-bg: #263138;
+  --cor-bg-dois: rgba(225, 152, 108, 0.25);
+  --cor-bege: #ff9a6c;
+  --cor-salmao: #ff725e;
+}
+
+body{
+  color: var(--cor-bg);
+}
+
+/*Cabeçalho*/
+header {
+  background-color: var(--cor-bege);
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav a{
+  color: #fff;
+  font-weight: 600;
+  padding: 32px;
+  text-decoration: none;
+}
+
+/*Inicio*/
+#inicio{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 80px 128px 80px;
+  
+  position: relative;
+}
+#inicio h1, h2{
+  font-weight: 600;
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+.paragrafo{
+  line-height: 150%;
+  margin-bottom: 32px;
+}
+.botao-c{
+  background-color: var(--cor-salmao);
+  padding: 16px 32px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+.botao-t{
+  background-color: transparent;
+  color: var(--cor-salmao);
+  padding: 16px 32px;
+  text-underline-offset: 4px;
+}
+.absoluta{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: 250px;
+}
+
+/*Materiais*/
+#materiais{
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 64px 80px;
+}
+#materiais li{
+  margin-bottom: 16px;
+  margin-left: 32px;
+}
+
+/*sobre*/
+#sobre{
+  padding: 64px 80px;
+  text-align: center;
+}
+#sobre img{
+  margin: 64px auto;
+}
+#sobre .paragrafo{
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+/*contato*/
+#contato{
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 64px 80px;
+}
+#contato .duvida h3{
+  border: 2px solid var(--cor-salmao);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 24px;
+}
+#contato .duvida{
+  position: relative;
+}
+#contato .duvida img{
+  position: absolute;
+  top: 25px;
+  right: 24px;
+}
+#contato .duvida .paragrafo{
+  border-left: 1px solid var(--cor-salmao);
+  border-right: 1px solid var(--cor-salmao);
+  border-bottom: 1px solid var(--cor-salmao);
+  border-radius: 0 0 8px 8px;
+  margin-top: -8px;
+  
+  padding: 0 24px;
+  
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+#contato .duvida.ativa .paragrafo{
+  padding: 24px;
+  height: fit-content;
+  opacity: 1;
+  /*feito para implementar com o js*/
+}
+
+/*Rodapé*/
+footer{
+  background-color: var(--cor-bg-dois);
+  display: flex;
+  gap: 80px;
+  padding: 64px 80px;
+  justify-content: space-between;
+}
+footer img, footer .titulo{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+footer nav a{
+  color: var(--cor-salmao);
+  display: block;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+footer p{
+  margin-bottom: 16px;
+  max-width: 350px;
+}
+footer p a{
+  color: var(--cor-salmao);
+}
+
+/*fim*/
+#copyright{
+  background-color: var(--cor-bege);
+  text-align: center;
+  padding: 24px;
+  color: white;
+}
+#copyright a{
+  color: var(--cor-salmao);
+}
