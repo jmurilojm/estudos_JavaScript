@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dropdown</title>
+  
+  <style>
+    .menu{
+      background-color: dodgerblue;
+      overflow: auto;
+      padding: 0;
+    }
+    .menu a{
+      color: white;
+      text-decoration: none;
+      padding: 0 10px;
+    }
+    .menu li{
+      list-style-type: none;
+      float: left;
+    }
+    .menu a:hover, .drop:hover .btn{
+      background-color: orangered;
+    }
+    .menu .itens a{
+      display: block;
+      padding: 5px 10px;
+      border: 1px solid gray;
+    }
+    .menu .itens{
+      position: absolute;
+      display: none;
+    }
+  .drop:hover .itens {
+    display: block;
+  }
+  </style>
+</head>
+
+<body>
+  <h1>Efeito Dropdown</h1>
+  <hr>
+  
+  <ul class="menu">
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+    <li class="drop">
+      <a class="btn" href="#">Link</a>
+      
+      <div class="itens">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+      </div>
+    </li>
+  </ul>
+
+</body>
+
+</html>
