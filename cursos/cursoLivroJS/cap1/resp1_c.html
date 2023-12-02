@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resposta 1.C</title>
+</head>
+
+<body>
+<script>
+  /*
+  c) Elaborar um programa para uma loja, o qual leia o preço de um produto e
+
+informe as opções de pagamento da loja. Calcule e informe o valor para
+
+pagamento à vista com 10% de desconto e o valor em 3x.
+Exemplo:
+Preço R$: 60.00
+
+À Vista R$: 54.00
+Ou 3x de R$: 20.00
+  */
+  
+  // pegar dados
+  const preco = Number(prompt('Preço do produto?'))
+  
+  // tratar dados
+  const valorAVista = preco - (preco * .10)
+  const valorAPrazo = preco / 3
+  
+  // exibir respostas
+  alert('À vista R$: ' + valorAVista.toFixed(2) + '\nou 3x de R$: ' + valorAPrazo.toFixed(2))
+</script>
+</body>
+
+</html>
