@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Média</title>
+</head>
+
+<body>
+
+  <h1>Média</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" name="" id="txtEntrada1" placeholder="Valor 1">
+    <input type="text" name="" id="txtEntrada2" placeholder="Valor 2">
+    
+    <input type="submit" value="Calcular média" onclick="processando()">
+  </form>
+
+  <p>> <span id="saida"></span></p>
+
+
+
+  <script>
+    function processando() {
+      event.preventDefault()
+
+      const v1 = document.getElementById('txtEntrada1').value
+      const v2 = document.getElementById('txtEntrada2').value
+      let campo = document.getElementById('saida')
+
+
+      let media = (Number(v1) + Number(v2)) / 2
+      
+      campo.innerText = 'Média = ' + media
+    }
+  </script>
+</body>
+
+</html>

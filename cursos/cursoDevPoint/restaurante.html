@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Restaurante</title>
+</head>
+
+<body>
+
+  <h1>Restaurante - Prato</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" name="" id="txtValorKg" placeholder="Valor por kg">
+    <input type="text" name="" id="txtConsumoG" placeholder="Peso na balança (g)">
+
+    <input type="submit" value="Calcular" onclick="processando()">
+  </form>
+
+  <p>> <span id="saida"></span></p>
+
+
+  <script>
+    function processando() {
+      event.preventDefault()
+      
+      const valorKg = document.getElementById('txtValorKg').value;
+      const consumoG = document.getElementById('txtConsumoG').value;
+      
+      let saida = document.getElementById('saida')
+      
+      const pagar = (valorKg * consumoG) / 1000;
+      
+      saida.innerText = 'Total a pagar pelo consumo de ' + consumoG + ' g = R$ ' + pagar.toFixed(2);
+    }
+  </script>
+</body>
+
+</html>
