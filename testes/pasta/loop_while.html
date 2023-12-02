@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>loop_while</title>
+</head>
+
+<body>
+
+<script>
+  // loop_while.js
+  
+  // comparando o for e o while
+  let cont = 0
+  for (cont; cont < 3; cont++){
+    console.log('Cont for=',cont + 1)
+  }
+  
+  let contador = 0
+  while (contador < 3){
+    console.log('Contador while =',contador + 1)
+    contador++
+  }
+  
+  
+  const pares = []
+  let i = 0
+  function criar_lista_de_pares(tam, lista){
+    while(i < tam){
+      lista.push(i * 2)
+      i++
+    }
+    console.log(lista)
+  }
+  criar_lista_de_pares(15,pares)
+  
+  
+  const numeros = [0,1,2,3,4,5,6,7,8,9,10,11]
+  function tira_impares(lista){
+    let i = 0
+    
+    while(i < lista.length){
+      if (lista[i] % 2 == 1){
+        lista.splice(i,1)
+      }
+      i++
+    }
+    console.log(lista)
+  }
+  tira_impares(numeros)
+  
+  // sintaxe do 'do while'
+  const pacote = []
+  let int = 0
+  do{
+    pacote.push(int ** 2)
+    int++
+  } while (pacote.length < 15)
+  
+  console.log(pacote)
+  
+</script>
+</body>
+
+</html>
