@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DOM</title>
+  
+  <style>
+    .container{
+      border: 3px solid darkgray;
+      min-height: 100px;
+      border-radius: 10px;
+      margin: 10px 0;
+      padding: 10px;
+    }
+    .curso{
+      background-color: grey;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .selecionado{
+      background-color: dodgerblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Evento addEventListener</h1>
+  <hr>
+  
+  <div id="c1" class="container">
+    <div id="d1" class="curso">HTML</div>
+    <div id="d2" class="curso">CSS</div>
+    <div id="d3" class="curso">JAVASCRIPT</div>
+    <div id="d4" class="curso">JSON</div>
+  </div>
+  
+  <button id="btnCopiar" type="button">Copiar</button>
+  
+  <div id="c2" class="container">
+    
+  </div>
+
+
+
+
+
+<script>
+  // 1⁰ obter os elementos que serão trabalhados
+  const c1 = document.querySelector('#c1')
+  const c2 = document.querySelector('#c2')
+  const btn = document.querySelector('#btnCopiar')
+  const cursos = [...document.querySelectorAll('.curso')]
+  
+  // 2⁰ 
+  //cursos = [...cursos]
+  
+  cursos.map((e) => {
+    e.addEventListener('click', (evento) => {
+      const curso = evento.target
+      console.log(curso.innerHTML)
+      curso.classList.toggle('selecionado')
+    })
+  })
+  
+  // 3⁰
+  
+  btn.addEventListener('click', () => {
+    const cursosSelecionados = [...document.querySelectorAll('.selecionado')]
+    //console.log(cursosSelecionados)
+    
+    cursosSelecionados.map((el) => {
+      c2.appendChild(el)
+    })
+  })
+</script>
+</body>
+
+</html>

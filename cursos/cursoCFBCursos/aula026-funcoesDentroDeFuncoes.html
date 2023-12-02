@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funções</title>
+</head>
+
+<body>
+  <h1>Funções dentro de Funções</h1>
+  <hr>
+
+
+
+<script>
+  const soma = (...valores) => {
+    const somar = val => {
+      let calc = 0
+      for(valor of val){
+        calc += valor
+      }
+      return calc
+    }
+    
+    return somar(valores)
+  }
+  
+  console.log(soma(5, 7, 32))
+</script>
+</body>
+
+</html>

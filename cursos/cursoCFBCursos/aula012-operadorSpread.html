@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operadores</title>
+</head>
+
+<body>
+  <h1>Spread</h1>
+  <hr>
+  
+  <div>
+    Curso do CFB Cursos
+  </div>
+  <div>
+    YT
+  </div>
+  <div>
+    Programação com Javascript
+  </div>
+
+
+
+<script>
+  // quebra/espalha um conjunto de elementos. exemplo: array
+  
+  let a = [1,2,3,4,5]
+  let b = [11,22,33,44,55]
+  let c = a + b
+  let d = [...a,...b]
+  let e = [a, b]
+  
+  let f = {nome: 'Fulano', idade: 99, peso: 60}
+  let g = {nome: 'Cicrano', idade: 1, altura: 1.5}
+  let h = {...f, ...g}//interseção 
+  
+  console.log(c, typeof(c))
+  console.log(d, typeof(d))
+  console.log(e, typeof(e))
+  console.log(h, typeof(h))
+  
+  
+  
+  // enviando para parâmetros de uma função 
+  const soma = (v1,v2,v3) => {
+    return v1 + v2 + v3
+  }
+  console.log(soma(1,2,5))
+  let i = [3,4,6]
+  console.log(soma(i))
+  console.log(soma(...i))
+  
+  
+  // como se utilizaria com DOM
+  const obj_1 = document.getElementsByTagName('div');
+  const obj_2 = [...document.getElementsByTagName('div')];
+  console.log(obj_1)
+  console.log(obj_2)
+  
+  obj_2.forEach(elemento => {
+    console.log(elemento)
+    elemento.innerHTML = 'Texto'
+  })
+</script>
+</body>
+
+</html>

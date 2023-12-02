@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funções</title>
+</head>
+
+<body>
+  <h1>Função MAP</h1>
+  <hr>
+  
+  <div id="c1">
+    HTML
+  </div>
+  <div id="c2">
+    CSS
+  </div>
+  <div id="c3">
+    JAVASCRIPT 
+  </div>
+  <div id="c4">
+    PYTHON
+  </div>
+  <div id="c5">
+    BOOTSTRAP 
+  </div>
+  <div id="c6">
+    REACT
+  </div>
+
+
+
+<script>
+  // funcao de percorrer arrays. sem opcao de parada como existe no For.
+  
+  const cursos = ['html', 'css', 'javascript']
+  
+  // nomeDaColecao.map(elemento, indice, coleção)
+  // utilizacao básica 
+  cursos.map((e, i) => {
+    console.log('Curso: ' + e + ' - Posição: ' + i)
+  })
+  
+  let c = cursos.map((e, i) => {
+    return e
+  })
+  console.log(c)
+  
+  let d = cursos.map((e, i) => {
+    return '<div>' + e + '</div>'
+  })
+  console.log(d)
+  
+  // pegando do document
+  const elementos = document.getElementsByTagName('div')
+  
+  elementos_2 = [...elementos]
+  elementos_2.map((e,i) => {
+    e.innerHTML = 'Cursos'
+    console.log(elementos_2)
+  })
+  
+  // outra forma de coletar os valores com o map
+  const itens = document.getElementsByTagName('div')
+  
+  const valores = Array.prototype.map.call(itens, ({innerHTML}) => innerHTML)
+  console.log(valores)
+  
+  
+  // realizando um cast
+  const converterInt = (elem) => parseInt(elem)
+  let num = ['1','2','3'].map(converterInt)
+  console.log(num)
+  
+  
+  // calculando
+  const converterInt_2 = (elem) => parseInt(elem)
+  const dobrar = (elem) => elem * 2
+  let num_2 = ['1','2','3'].map(dobrar)
+  console.log(num_2)
+  
+</script>
+</body>
+
+</html>
