@@ -29,7 +29,7 @@ function apostar() {
   
   
   // mensagens
-  const msmChancesZeradas = 'Duas CHANCES estão zeradas.'
+  const msmChancesZeradas = 'Suas CHANCES acabaram! Número sorteado: ' + numeroAleatorio
   const msmInvalido = 'Por favor, informe um número válido e no intervalo de 1 a ' + numeroMax + ' !'
   const msmExitente = 'Número já apostado.'
   const msmMenor = 'Dica: É um número MENOR'
