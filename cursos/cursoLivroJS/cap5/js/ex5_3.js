@@ -30,7 +30,7 @@ function adicionarCarro() {
     inModelo.value = ''
     inPreco.value = ''
     inModelo.focus()
-    listarCarros()
+    //listarCarros()
   }
 }
 
@@ -51,7 +51,7 @@ function listarCarros() {
 function filtrarCarros() {
   const valor = Number(document.getElementById('inPreco').value)
 
-  let filtro = ''
+  let filtro = 'Carros de até R$: ' + (valor).toFixed(2) + '\n--------------------\n' 
 
   if (carros.length == 0) {
     return document.getElementById('outLista').textContent = 'Não há carros cadastrados.'
