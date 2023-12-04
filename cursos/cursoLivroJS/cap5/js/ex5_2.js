@@ -7,7 +7,7 @@ botao2.addEventListener('click', jogarOutraVez)
 
 
 // geracao de numero e armazenamento
-let numeroMax = 10
+let numeroMax = 100
 let numeroAleatorio = Math.floor(Math.random() * numeroMax) + 1
 
 let numeroDeErros = 0
@@ -38,12 +38,7 @@ function apostar() {
   
 
   // tratamento de dados e retorno
-  if (numeroDeChances == 0) {
-    dica.textContent = msmChancesZeradas
-    dica.style.color = 'red'
-    botao.disabled = true
-    botao2.className = 'exibe'
-  } else if (aposta < 1 || aposta == '' || isNaN(aposta) || aposta == ' ' || aposta > numeroMax) {
+  if (aposta < 1 || aposta == '' || isNaN(aposta) || aposta == ' ' || aposta > numeroMax) {
     dica.textContent = msmInvalido
     dica.style.color = 'red'
     limpar()
@@ -67,6 +62,12 @@ function apostar() {
       dica.textContent = aposta > numeroAleatorio ? msmMenor : msmMaior
       dica.style.color = 'orange'
       limpar()
+      if(numerosApostados.length == 6){
+        dica.textContent = msmChancesZeradas
+        dica.style.color = 'red'
+        botao.disabled = true
+        botao2.className = 'exibe'
+      }
     }
   }
   
