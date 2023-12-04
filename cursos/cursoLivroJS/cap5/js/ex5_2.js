@@ -60,9 +60,10 @@ function apostar() {
     } else{
       numeroDeErros++
       numeroDeChances--
-      erros.textContent = numeroDeErros
+      
       chances.textContent = numeroDeChances
       numerosApostados.push(aposta)
+      erros.textContent = numeroDeErros + '  (' + numerosApostados + ')'
       dica.textContent = aposta > numeroAleatorio ? msmMenor : msmMaior
       dica.style.color = 'orange'
       limpar()
