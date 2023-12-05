@@ -18,6 +18,16 @@ function adicionarCrianca() {
   const nome = inNome.value
   const idade = Number(inIdade.value)
   let contem = false
+  
+  if(nome == '' || idade == ''){
+    alert('Por favor, insira os dados!')
+    if(nome == ''){
+      inNome.focus()
+    } else{
+      inIdade.focus()
+    }
+    return
+  }
 
   for (let i = 0; i < criancas.length; i++) {
     if (criancas[i].nome == nome && criancas[i].idade == idade) {
@@ -32,6 +42,8 @@ function adicionarCrianca() {
     criancas.push({ nome: nome, idade: idade })
     inNome.value = ''
     inIdade.value = ''
+    alert('Adicionado(a).')
+    inNome.focus()
   }
 }
 
@@ -53,45 +65,49 @@ function listarCriancas() {
 function resumirPorIdade() {
   const outLista = document.getElementById('outLista')
 
-  // copia
-  let copia = criancas.slice()
+  if (criancas.length == 0) {
+    alert('Sem cadastros!')
+  } else {
+    // copia
+    let copia = criancas.slice()
 
-  // ordena
-  copia.sort(function(a, b) {
-    return a.idade - b.idade
-  })
+    // ordena
+    copia.sort(function(a, b) {
+      return a.idade - b.idade
+    })
 
-  // concatenar saida
-  let resumo = ''
+    // concatenar saida
+    let resumo = ''
 
-  // menor idade
-  let aux = copia[0].idade
-  // nomes de cada idade
-  let nomes = []
+    // menor idade
+    let aux = copia[0].idade
+    // nomes de cada idade
+    let nomes = []
 
-  for (let i = 0; i < copia.length; i++) {
-    if (copia[i].idade == aux) {
-      nomes.push(copia[i].nome)
-    } else {
-      // senão, adiciona ao resumo, dados e nomes inseridos em nomes[]
-      resumo += aux + " ano(s): " + nomes.length + " criança(s) - ";
-      resumo += (nomes.length / copia.length * 100).toFixed(2) + "%\n";
-      resumo += "(" + nomes.join(", ") + ")\n\n";
+    for (let i = 0; i < copia.length; i++) {
+      if (copia[i].idade == aux) {
+        nomes.push(copia[i].nome)
+      } else {
+        // senão, adiciona ao resumo, dados e nomes inseridos em nomes[]
+        resumo += aux + " ano(s): " + nomes.length + " criança(s) - ";
+        resumo += (nomes.length / copia.length * 100).toFixed(2) + "%\n";
+        resumo += "(" + nomes.join(", ") + ")\n\n";
 
-      aux = copia[i].idade; // obtém a nova idade na ordem
+        aux = copia[i].idade; // obtém a nova idade na ordem
 
-      nomes = []; // limpa o vetor dos nomes
-      nomes.push(copia[i].nome); // adiciona o primeiro da nova idade
+        nomes = []; // limpa o vetor dos nomes
+        nomes.push(copia[i].nome); // adiciona o primeiro da nova idade
+      }
     }
+
+    // adiciona os nomes da última idade ordenada
+
+    resumo += aux + " ano(s): " + nomes.length + " criança(s) - ";
+
+    resumo += (nomes.length / copia.length * 100).toFixed(2) + "%\n";
+    resumo += "(" + nomes.join(", ") + ")\n\n";
+
+    // altera conteúdo de outLista
+    outLista.textContent = resumo;
   }
-
-  // adiciona os nomes da última idade ordenada
-
-  resumo += aux + " ano(s): " + nomes.length + " criança(s) - ";
-
-  resumo += (nomes.length / copia.length * 100).toFixed(2) + "%\n";
-  resumo += "(" + nomes.join(", ") + ")\n\n";
-
-  // altera conteúdo de outLista
-  outLista.textContent = resumo;
 }
