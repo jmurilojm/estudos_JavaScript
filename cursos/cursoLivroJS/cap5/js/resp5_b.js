@@ -51,6 +51,10 @@ function verificarOrdem(){
   } else{
     retorno.textContent = 'Números: ' + numeros
     
+    let ordem = true
+    let msmCrescente = 'Estão em Ordem Crescente.'
+    let msmDecrescente = 'Os Números estão em Ordem Decrescente ou Aleatória.'
+    
     /*
     Este laço irá iterar o array comparando os elementos para saber se eles encontram-se em ordem crescente ou decrescente 
     */
@@ -60,10 +64,19 @@ function verificarOrdem(){
       Se nao, sera retornado a resposta de que é um array crescente
       */
       if((numeros[i] < numeros[i + 1]) == false){
-        info.textContent = 'Os Números estão em Ordem Decrescente ou Aleatória.'
+        ordem = false
         break
       }
     }
     
+    /*
+    Depois de verificada a ordem dos números, é retornada uma mensagem de informando o sentido desta.
+    */
+    if(ordem == true){
+      info.textContent = msmCrescente
+      info.style.color = 'green'
+    } else{
+      info.textContent = msmDecrescente
+    }
   }
 }
