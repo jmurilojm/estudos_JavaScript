@@ -23,6 +23,14 @@ function adicionarClube(){
   const clube = inClube.value
   const tabela = outTabela
   
+  
+  if(clubes.find(e => e === clube)){
+    alert('Clube já está cadastrado.')
+    inClube.value = ''
+    inClube.focus()
+    return
+  }
+  
   if(clube == '' || clube == ' '){
     alert('Por favor, preencha o campo com valor válido!')
     return
