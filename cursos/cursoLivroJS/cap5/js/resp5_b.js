@@ -61,6 +61,7 @@ function verificarOrdem(){
       */
       if((numeros[i] < numeros[i + 1]) == false){
         info.textContent = 'Os Números estão em Ordem Decrescente ou Aleatória.'
+        break
       }
     }
     
