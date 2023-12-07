@@ -3,13 +3,66 @@ c) Elaborar um programa que leia nome e número de acertos de candidatos inscrit
 */
 
 let candidatos = []
-const nome = 'fulano'
-const acertos = 8
 
-candidatos.push({nome:nome, acertos:acertos})
+const btAdicionar = document.getElementById('btAdicionar')
+const btAprovados = document.getElementById('btAprovados')
+const btListar = document.getElementById('btListar')
 
-let lista = ''
-for(let i = 0; i < candidatos.length; i++){
-  lista += candidatos[0].nome + ' - ' + candidatos[0].acertos + ' / '
+btAdicionar.addEventListener('click', adicionarCandidato)
+btAprovados.addEventListener('click', listarAprovados)
+btListar.addEventListener('click', listarTodos)
+
+
+
+function adicionarCandidato() {
+  const inNome = document.getElementById('inNome')
+  const inAcertos = document.getElementById('inAcertos')
+  const outRetorno = document.getElementById('outRetorno')
+
+
+  const nome = inNome.value
+  const acertos = Number(inAcertos.value)
+  const retorno = outRetorno
+
+  candidatos.push({ nome: nome, acertos: acertos })
+
+  let total = 0
+  for (let i = 0; i < candidatos.length; i++){
+    total++
+  }
+
+  retorno.textContent = 'Inscritos: ' + total
+  inNome.value = ''
+  inAcertos.value = ''
+  inNome.focus()
 }
-alert(lista)
+
+function listarAprovados(){
+  const outRetorno = document.getElementById('outRetorno')
+  const pontuacaoMin = Number(prompt('Quantidade mínima de acertos?'))
+  
+  const retorno = outRetorno
+  
+  let aprovados = ''
+  
+  for(let i = 0; i < candidatos.length; i++){
+    if(candidatos[i].acertos >= pontuacaoMin){
+      aprovados += candidatos[i].nome + ' - ' + candidatos[i].acertos + '\n'
+    }
+  }
+  
+  retorno.textContent = aprovados
+}
+
+function listarTodos(){
+  const outRetorno = document.getElementById('outRetorno')
+  
+  const retorno = outRetorno
+  
+  let lista = ''
+  for (let i = 0; i < candidatos.length; i++){
+    lista += candidatos[i].nome + ' - ' + candidatos[i].acertos + '\n'
+  }
+  
+  retorno.textContent = 'Todos os Candidatos\n' + '-------------------\n' + lista
+}
