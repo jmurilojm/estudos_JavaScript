@@ -23,6 +23,18 @@ function adicionarCandidato() {
   const nome = inNome.value
   const acertos = Number(inAcertos.value)
   const retorno = outRetorno
+  
+  if(isNaN(nome) == false){
+    alert('Digite um Nome.')
+    inNome.value = ''
+    inNome.focus()
+    return
+  }
+  
+  if(acertos == ''){
+    alert('Por favor, preencha todos os campos!')
+    return
+  }
 
   candidatos.push({ nome: nome, acertos: acertos })
 
