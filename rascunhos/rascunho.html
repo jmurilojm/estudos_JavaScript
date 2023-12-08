@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+  <script>
+    // colocando um array de numeros em ordem crescente
+    
+    let n = [106, -5, 9, 4]
+    console.log(n)
+
+    while (true) {
+      for (let i = 0; i < (n.length - 1); i++) {
+        if (n[i] > n[i + 1]) {
+          let x = n[i + 1]
+          n[i + 1] = n[i]
+          n[i] = x
+        }
+      }
+      //console.log(n)
+
+      let cont = 0
+      for (let i = 0; i < (n.length - 1); i++) {
+        if (n[i] > n[i + 1]) {
+          cont++
+        }
+      }
+      //console.log(cont)
+
+      if (cont == 0) {
+        break
+      }
+    }
+
+    console.log(n)
+  </script>
+</body>
+
+</html>

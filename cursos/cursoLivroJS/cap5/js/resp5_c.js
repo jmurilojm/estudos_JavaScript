@@ -43,15 +43,46 @@ function listarAprovados(){
   
   const retorno = outRetorno
   
-  let aprovados = ''
-  
-  for(let i = 0; i < candidatos.length; i++){
-    if(candidatos[i].acertos >= pontuacaoMin){
-      aprovados += candidatos[i].nome + ' - ' + candidatos[i].acertos + '\n'
+  let aprovados = []
+  for (let i = 0; i < candidatos.length; i++) {
+    if (candidatos[i].acertos >= pontuacaoMin) {
+      aprovados.push({nome:candidatos[i].nome, acertos: candidatos[i].acertos})
     }
   }
   
-  retorno.textContent = aprovados
+  // colocando tudo em ordem crescente
+  while (true) {
+    for (let i = 0; i < (aprovados.length - 1); i++) {
+      if (aprovados[i].acertos > aprovados[i + 1].acertos) {
+        let x = aprovados[i + 1]
+        aprovados[i + 1] = aprovados[i]
+        aprovados[i] = x
+      }
+    }
+  
+    let cont = 0
+    for (let i = 0; i < (aprovados.length - 1); i++) {
+      if (aprovados[i].acertos > aprovados[i + 1].acertos) {
+        cont++
+      }
+    }
+  
+    if (cont == 0) {
+      break
+    }
+  }
+  
+  // invertendo array de aprovados
+  aprovados.reverse()
+  
+  // criando lista de aprovados para impressão
+  let listaDeAprovados = ''
+  for(let i = 0; i < aprovados.length; i++){
+      listaDeAprovados += (i + 1) + 'º ' + aprovados[i].nome + ' - ' + aprovados[i].acertos + ' acertos\n'
+    
+  }
+  
+  retorno.textContent = listaDeAprovados
 }
 
 function listarTodos(){
@@ -61,7 +92,7 @@ function listarTodos(){
   
   let lista = ''
   for (let i = 0; i < candidatos.length; i++){
-    lista += candidatos[i].nome + ' - ' + candidatos[i].acertos + '\n'
+    lista += candidatos[i].nome + ' - ' + candidatos[i].acertos + ' acertos\n'
   }
   
   retorno.textContent = 'Todos os Candidatos\n' + '-------------------\n' + lista
