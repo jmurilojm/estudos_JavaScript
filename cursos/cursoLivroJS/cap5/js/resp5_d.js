@@ -9,6 +9,7 @@ btListar.addEventListener('click', listarNoticias)
 
 let noticias = []
 let cont = 0
+
 function adicionarNoticia(){
   const inNoticia = document.getElementById('inNoticia')
   const outTotal = document.getElementById('outTotal')
@@ -39,17 +40,16 @@ function listarNoticias(){
     alert('Não há notícia publicada.')
     return
   } else{
-    const quantidade = Number(prompt('Total que deseja visualizar?'))
+    var quantidade = Number(prompt('Total que deseja visualizar?'))
     if(quantidade > noticias.length || quantidade == '' || quantidade < 1){
       alert('Por favor, verifique a quatidade digitada! Total de Notícias disponiveis: ' + noticias.length)
       return
     } else{
-      noticias.reverse()
-      for(let i = 1; i <= quantidade; i++){
-        lista += i + ' - ' + noticias[i-1] + '\n'
+      for(let i = 0; i < quantidade; i++){
+        lista += (noticias.length - i) + 'ª) ' + noticias[(noticias.length - i) - 1] + '\n'
       }
     }
   }
   
-  saida.textContent = lista
+  saida.textContent = quantidade + ' últimas Notícias\n' + '------------------\n' + lista
 }
