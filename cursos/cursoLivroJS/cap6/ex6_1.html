@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo 6.1</title>
+</head>
+
+<body>
+
+<script>
+  let anuncio = prompt('Anúncio: ')
+  let tam = anuncio.length
+  let totalDePalavras = 1
+  
+  for(let i = 0; i < tam; i++){
+    if(anuncio.charAt(i) == ' '){
+      totalDePalavras++
+    }
+  }
+  
+  alert('Tamanho: ' + tam + '. Palavras: ' + totalDePalavras)
+</script>
+</body>
+
+</html>
