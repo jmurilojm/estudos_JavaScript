@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo 6.3</title>
+</head>
+
+<body>
+<script>
+  let palavra = prompt('Digite um palavra:')
+  let tam = palavra.length
+  
+  let invertida = ''
+  let palavra2 = ''
+  
+  for(let i = tam; i >= 0; i--){
+    if(i == (tam-1)){
+      invertida += palavra.charAt(i).toUpperCase()
+    } else{
+      invertida += palavra.charAt(i)
+    }
+  }
+  
+  for(let i = 0; i < palavra.length; i++){
+    if(i == 0){
+      palavra2 += palavra.charAt(i).toUpperCase()
+    } else{
+      palavra2 += palavra.charAt(i)
+    }
+  }
+  
+  alert('Palavra: ' + palavra2 + '\nInvertida: ' + invertida + '\nCorte: ' + palavra.substr(0,3))
+</script>
+</body>
+
+</html>
