@@ -13,6 +13,13 @@ function gerarCracha(){
   let primeiroNome = ''
   let ultimoNome = ''
   
+  if(isNaN(nome) == false || nome.length < 8){
+    alert('Por favor, digite o Nome e Sobrenome!')
+    inNome.value = ''
+    inNome.focus()
+    return
+  }
+  
   for(let i = 0; i < nome.length; i++){
     if(nome.charAt(i) == ' '){
       primeiroNome = nome.substr(0,i)
