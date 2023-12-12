@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Programa Data e Hora</h1>
+
+<script>
+  /*
+  Exemplo 6.8 – Programa queexibe data e hora atual (ex6_8.html)
+  
+  Com os métodos toDateString() e toTimeString(), podemos dividir a exibição completa da data em dados da data e da hora, conforme apresentado na Figura 6.10 (script ex6_8.html), decorrente da execução dos seguintes comandos.
+  */
+  
+  let dataCompleta = new Date()
+  
+  let data = dataCompleta.toDateString()
+  let hora = dataCompleta.toTimeString()
+  
+  alert('Data: ' + data + '\nHora: ' + hora)
+</script>
+</body>
+
+</html>
