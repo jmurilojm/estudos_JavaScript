@@ -48,3 +48,9 @@ function verificarSenha(){
     retorno.textContent = 'Erros: ' + erros
   }
 }
+
+// utilização fo metodo replace()
+let frase = 'ESTUDANDO A PROGRAMACAO'
+console.log(frase.replace('A', '_'))
+console.log(frase.replace(/A/g, '•'))
+console.log(frase.replace(/ /g, '').toLocaleLowerCase())
