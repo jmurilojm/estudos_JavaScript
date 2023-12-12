@@ -10,6 +10,10 @@
 <body>
 
 <script>
+/*
+O script lê o anúncio, descobre o tamanho do texto e percorre todos os caracteres que o compõem. Ao encontrar um espaço, acrescenta-se 1 para a variável numPalavras. Como um texto com 5 espaços contém 6 palavras, deve-se acrescentar 1 antes de exibir a resposta para o usuário. Esse cálculo também pode ser obtido com o uso do metodo split() visto mais adiante neste capítulo. A Figura 6.2 exibe o alert() desse script, com um exemplo de anúncio informado pelo usuário.
+*/
+
   let anuncio = prompt('Anúncio: ')
   let tam = anuncio.length
   let totalDePalavras = 1

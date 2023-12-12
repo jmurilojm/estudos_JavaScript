@@ -1,3 +1,7 @@
+/*
+Vamos construir um exemplo de aplicação desses métodos e também do método substr() visto na seção anterior? O programa "Nome no Crachá deve ler o nome completo de um participante em um evento e exibir apenas o seu nome e sobrenome. A Figura 6.5 exemplifica uma entrada e saída desse programa.
+*/
+
 const btGerar = document.getElementById('btGerar')
 btGerar.addEventListener('click', gerarCracha)
 
