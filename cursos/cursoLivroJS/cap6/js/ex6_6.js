@@ -49,7 +49,7 @@ function verificarSenha(){
   }
 }
 
-// utilização fo metodo replace()
+// utilização do metodo replace()
 let frase = 'ESTUDANDO A PROGRAMACAO'
 console.log(frase.replace('A', '_'))
 console.log(frase.replace(/A/g, '•'))
