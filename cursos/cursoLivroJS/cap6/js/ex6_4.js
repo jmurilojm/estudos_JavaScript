@@ -7,10 +7,10 @@ function gerarCracha(){
   const inNome = document.getElementById('inNome')
   const outCracha = document.getElementById('outCracha')
   
-  const nome = inNome.value
+  const nome = inNome.value.trim()
   const cracha = outCracha
   
-  let primeiroNome = 't'
+  let primeiroNome = ''
   let ultimoNome = ''
   
   for(let i = 0; i < nome.length; i++){
