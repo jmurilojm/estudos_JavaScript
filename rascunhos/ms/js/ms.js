@@ -129,11 +129,13 @@ function outubro(){
   return
 }
 function novembro(){
+  document.getElementById('outSorteios').textContent = 'Sorteios: ' + nove.length
   limpar()
   analisar(nove)
   return
 }
 function dezembro(){
+  document.getElementById('outSorteios').textContent = 'Sorteios: ' + deze.length
   limpar()
   analisar(deze)
   return
