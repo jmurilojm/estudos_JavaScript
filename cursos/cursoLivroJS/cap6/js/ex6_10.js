@@ -1,3 +1,7 @@
+/*
+Nosso programa deve ler a data de vencimento e o valor de uma conta. Caso a conta esteja em atraso, o programa deve calcular o valor da multa e dos juros a serem acrescentados ao valor total. O código HTM. contém um novo tipo de campo HTML e outra forma de exibir uma resposta ao usuário. Analise o código da página ex9_10.html e, na sequência, vamos destacar esses detalhes.
+*/
+
 const TX_MULTA = .02
 const TX_JUROS = .03 / 100
 
