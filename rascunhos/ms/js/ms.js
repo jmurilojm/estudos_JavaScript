@@ -18,7 +18,9 @@ const deze = [
   [12, 15, 17, 30, 40, 52],
   [03, 14, 21, 22, 37, 39],
   [05, 25, 29, 30, 43, 47],
-  [01, 04, 08, 21, 46, 51]
+  [01, 04, 08, 21, 46, 51],
+  [01, 27, 30, 41, 46, 57],
+  [04, 07, 16, 35, 46, 54]
 ]
 
 const todos = [
@@ -39,7 +41,9 @@ const todos = [
   [12, 15, 17, 30, 40, 52],
   [03, 14, 21, 22, 37, 39],
   [05, 25, 29, 30, 43, 47],
-  [01, 04, 08, 21, 46, 51]
+  [01, 04, 08, 21, 46, 51],
+  [01, 27, 30, 41, 46, 57],
+  [04, 07, 16, 35, 46, 54]
 ]
 
 
@@ -141,6 +145,7 @@ function dezembro(){
   return
 }
 function listarTodos(){
+  document.getElementById('outSorteios').textContent = 'Sorteios: ' + todos.length
   limpar()
   analisar(todos)
   return
