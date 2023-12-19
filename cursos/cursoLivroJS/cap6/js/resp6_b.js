@@ -26,3 +26,5 @@ for(let i = 0; i < (partes.length - 1); i++){
   citacao += partes[i] + '. '
 }
 console.log(citacao)
+
+
