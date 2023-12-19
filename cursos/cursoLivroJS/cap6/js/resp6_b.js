@@ -7,7 +7,7 @@ Citação Bibliográfica: SILVA, M. S.
 
 
 /*
-let nome = 'Jose Murilo Lopes Ferreira'
+let nome = 'Mauricio Samy Silva'
 nome = nome.trim().split(' ')
 let partes = []
 
