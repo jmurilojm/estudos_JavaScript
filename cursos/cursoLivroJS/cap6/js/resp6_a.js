@@ -36,45 +36,45 @@ let pares = ''
 let impares = ''
 
 
-function criptografarMensagem(){
+function criptografarMensagem() {
   const inMensagem = document.getElementById('inMensagem')
   const outRetorno = document.getElementById('outRetorno')
-  
+
   const mensagem = inMensagem.value
   const retorno = outRetorno
-  
 
-  for(let i = 0; i < mensagem.length; i++){
+
+  for (let i = 0; i < mensagem.length; i++) {
     //console.log(mensagem.charAt(i))
-    if(i % 2 == 0){
+    if (i % 2 == 0) {
       pares += mensagem.charAt(i)
     }
   }
-  for(let i = 0; i < mensagem.length; i++){
+  for (let i = 0; i < mensagem.length; i++) {
     //console.log(mensagem.charAt(i))
-    if(i % 2 != 0){
+    if (i % 2 != 0) {
       impares += mensagem.charAt(i)
     }
   }
-  
+
   let criptografado = pares + impares
   retorno.textContent = criptografado.toLowerCase()
-  
+
   inMensagem.value = ''
 }
 
-function descriptografarMensagem(){
+function descriptografarMensagem() {
   const outRetorno = document.getElementById('outRetorno')
-  
+
   const retorno = outRetorno
   let descriptografado = ''
   let mensagem = pares + impares
-  
-  
-  for(let i = 0; i < mensagem.length; i++){
+
+
+  for (let i = 0; i < mensagem.length; i++) {
     descriptografado += pares.charAt(i)
     descriptografado += impares.charAt(i)
   }
-  
+
   retorno.textContent = descriptografado.toLowerCase()
 }
