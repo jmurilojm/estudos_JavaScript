@@ -24,6 +24,7 @@ if(normal == invertida){
 }
 */
 
+alert('Não use acentos e pontuações!')
 
 const btVerificar = document.getElementById('btVerificar')
 btVerificar.addEventListener('click', verificarFrase)
