@@ -62,7 +62,7 @@ function analisar(mes) {
     }
     if (total == 0) {
       console.log('Nº ' + mega + ': ')
-      document.getElementById('outRetorno').textContent += 'Nº ' + mega + ': ' +  '\n'
+      document.getElementById('outRetorno').textContent += 'Nº ' + mega + ': ' + '\n'
     } else {
       console.log('Nº ' + mega + ': ' + total)
       document.getElementById('outRetorno').textContent += 'Nº ' + mega + ': ' + total + '\n'
@@ -73,84 +73,75 @@ function analisar(mes) {
 
 
 
-const inNov = document.getElementById('inNov')
-const inDez = document.getElementById('inDez')
-const inTodos = document.getElementById('inTodos')
-inNov.addEventListener('click',novembro)
-inDez.addEventListener('click',dezembro)
-inTodos.addEventListener('click',listarTodos)
+const btNov = document.getElementById('btNov')
+const btDez = document.getElementById('btDez')
+const btTodos = document.getElementById('btTodos')
+const btRelacionar = document.getElementById('btRelacionar')
+
+btNov.addEventListener('click', novembro)
+btDez.addEventListener('click', dezembro)
+btTodos.addEventListener('click', listarTodos)
+btRelacionar.addEventListener('click', analisarPalpite)
 
 
 
-function janeiro() {
-  limpar()
-  analisar(jane)
-  return
-}
-function fevereiro() {
-  limpar()
-  analisar(feve)
-  return
-}
-function marco() {
-  limpar()
-  analisar(marc)
-  return
-}
-function abril() {
-  limpar()
-  analisar(abri)
-  return
-}
-function maio() {
-  limpar()
-  analisar(maio)
-  return
-}
-function junho() {
-  limpar()
-  analisar(junh)
-  return
-}
-function julho() {
-  limpar()
-  analisar(julh)
-  return
-}
-function agosto() {
-  limpar()
-  analisar(agos)
-  return
-}
-function setembro() {
-  limpar()
-  analisar(sete)
-  return
-}
-function outubro(){
-  limpar()
-  analisar(outu)
-  return
-}
-function novembro(){
+
+function novembro() {
   document.getElementById('outSorteios').textContent = 'Sorteios: ' + nove.length
   limpar()
   analisar(nove)
   return
 }
-function dezembro(){
+
+function dezembro() {
   document.getElementById('outSorteios').textContent = 'Sorteios: ' + deze.length
   limpar()
   analisar(deze)
   return
 }
-function listarTodos(){
+
+function listarTodos() {
   document.getElementById('outSorteios').textContent = 'Sorteios: ' + todos.length
   limpar()
   analisar(todos)
   return
 }
 
-function limpar(){
+function analisarPalpite(){
+  limpar()
+  palpite()
+  return
+}
+
+function limpar() {
   document.getElementById('outRetorno').textContent = ''
+  return
+}
+
+
+function palpite() {
+  const outRetorno = document.getElementById('outRetorno')
+  document.getElementById('outSorteios').textContent = 'Sorteios: ' + todos.length
+  
+  const retorno = outRetorno
+  
+  let aposta = [5, 45, 26, 52, 58, 60]
+  
+  for (let i = 0; i < todos.length; i++) {
+    let lista = ''
+    for (let n = 0; n < todos[i].length; n++) {
+
+      let indice = aposta.indexOf(todos[i][n])
+
+      if (indice != -1) {
+        lista += ' ' + todos[i][n] + ' '
+      }
+
+    }
+    
+    if(lista.length > 0){
+      retorno.textContent += '(' + lista + ')\n'
+    }
+    
+  }
 }
