@@ -17,6 +17,11 @@ function calcularDataLimite(){
   const valor = Number(inValor.value)
   const retorno = outRetorno
   
+  if(valor == '' || dataDoc == ''){
+    alert('Por favor, preencha todos os campos!')
+    return
+  }
+  
   
   const diaDoc = dataDoc.slice(8)
   const mesDoc = dataDoc.slice(5,7)-1
