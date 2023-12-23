@@ -125,7 +125,7 @@ function palpite() {
   
   const retorno = outRetorno
   
-  let aposta = [5, 45, 26, 52, 58, 60]
+  let aposta = [30,46, 23,27, 36,41,60, 6,7,11,13,17,20,35,51,56,59]
   
   for (let i = 0; i < todos.length; i++) {
     let lista = ''
