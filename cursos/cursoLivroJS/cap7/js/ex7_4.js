@@ -18,7 +18,7 @@ btCalcular.addEventListener('click', function(){
   const preco = Number(inPreco.value)
   const retorno = outFormas
   
-  if(preco == '' || preco < 1){
+  if(preco == '' || preco < 1 || isNaN(preco)){
     return alert('Por favor, preencha o valor!')
   }
   
@@ -28,5 +28,5 @@ btCalcular.addEventListener('click', function(){
     parcelas += i + 'x de R$: ' + (preco / i).toFixed(2) + '\n'
   }
   
-  retorno.textContent = 'Parcelas para Pagamento: \n' + parcelas
+  retorno.textContent = 'Parcelas Disponíveis: \n\n' + parcelas
 })
