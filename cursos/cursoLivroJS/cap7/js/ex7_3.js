@@ -36,6 +36,10 @@ function calcularEClassificar() {
   const retornoClasse = outClassificacao
   const retornoValor = outVenda
   
+  if(modelo == '' || ano == '' || precoCliente == ''){
+    return alert('Pro favor, preencha todos os campos!')
+  }
+  
   
   const estadoDoVeiculo = classificacao(ano)
   const precoDoVeiculo = precificacao(estadoDoVeiculo, precoCliente)
