@@ -52,6 +52,8 @@ function obterSobrenome(a) {
   return b[0]
 }
 
+
+
 function contarVogais(a) {
   a.trim().toLowerCase()
   let total = 0
