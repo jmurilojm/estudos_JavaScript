@@ -6,3 +6,18 @@ c) Elaborar um programa para uma veterinária, o qual leia o preço de uma vacin
 A Figura 7.7 apresenta a tela inicial do programa para um cliente sem convênio. Já a Figura 7.8 exibe a página para um cliente que possui convênio. Observe que a caixa de seleção não deve ser exibida no início do programa.
 */
 
+function temConvenio(){
+  if(rbSim.checked){
+    pConvenio.className = 'exibe'
+    return true
+  } else{
+    pConvenio.className = 'oculta'
+    return false
+  }
+}
+const rbSim = document.getElementById('rbSim')
+const rbNao = document.getElementById('rbNao')
+rbSim.addEventListener('change', temConvenio)
+rbNao.addEventListener('change', temConvenio)
+
+
