@@ -20,9 +20,17 @@ function categorizarAluno(){
   const retornoNome = outNome
   const retornoCategoria = outCategoria
   
+  if(nome == '' || idade == ''){
+    alert('Por favor, preencha todos os campos!')
+    return
+  }
+  
   outNome.textContent = nome
   outTracos.textContent = retornarTracos(nome)
   outCategoria.textContent = categorizar(idade)
+  
+  limparCampos()
+  inNome.focus()
 }
 const btCategoria = document.getElementById('btCategoria')
 btCategoria.addEventListener('click', categorizarAluno)
@@ -32,7 +40,7 @@ function retornarTracos(frase){
   let tracos = ''
   for(let i = 0; i < frase.length; i++){
     if(frase.charAt(i) != ' '){
-      tracos += '- '
+      tracos += '-'
     } else{
       tracos += ' '
     }
@@ -51,5 +59,13 @@ function categorizar(id){
     categ = 'Adulto'
   }
   
-  return categ
+  return 'Categoria: ' + categ
+}
+
+function limparCampos(){
+  const inNome = document.getElementById('inNome').value = ''
+  document.getElementById('inIdade').value = ''
+  
+  inNome.value = ''
+  return
 }
