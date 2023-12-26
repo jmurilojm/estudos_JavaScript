@@ -14,7 +14,15 @@
   <p>Valor da Vacina: <input type="text" name="" id="inValor"></p>
   <p>Possui Convênio:
     <input type="radio" name="convenio" id="rbSim"> Sim
-    <input type="radio" name="convenio" id="rbNao"> Não 
+    <input checked type="radio" name="convenio" id="rbNao"> Não 
+  </p>
+  
+  <p class="oculta">
+    <span>Convênio: </span>
+    <select name="" id="inConvenio">
+      <option value="amigo">Amigo dos Animais</option>
+      <option value="saude">Saúde do Animal</option>
+    </select>
   </p>
   
   <p><input type="button" value="Calcular Desconto" id="btCalcular"></p>
