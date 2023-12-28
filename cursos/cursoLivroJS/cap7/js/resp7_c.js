@@ -90,6 +90,8 @@ function limparCampos(){
 Esta função faz a kimpeza de todos os campo, retornando as opções para o estado inicial.
 */
   inValor.value = ''
+  outDesconto.textContent = ''
+  outPagar.textContent = ''
   rbSim.checked = false
   rbNao.checked = true
   inConvenio.selectedIndex = 0
