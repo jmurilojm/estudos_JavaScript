@@ -40,6 +40,7 @@ const inConvenio = document.getElementById('inConvenio')
 inConvenio.addEventListener('change', buscarConvenio)
 
 
+
 function calcularDesconto(){
   /*
   Esta função irá calcular o valor a ser pago por ter ou não algum convênio.
@@ -78,7 +79,22 @@ function calcularDesconto(){
   
   desconto.textContent = 'Desconto R$: ' + valorDeDesconto.toFixed(2)
   pagar.textContent = 'A Pagar R$: ' + valorTotal.toFixed(2)
-  
 }
 const btCalcular = document.getElementById('btCalcular')
 btCalcular.addEventListener('click', calcularDesconto)
+
+
+
+function limparCampos(){
+/*
+Esta função faz a kimpeza de todos os campo, retornando as opções para o estado inicial.
+*/
+  inValor.value = ''
+  rbSim.checked = false
+  rbNao.checked = true
+  inConvenio.selectedIndex = 0
+  pConvenio.className = 'oculta'
+  inValor.focus()
+}
+const btLimpar = document.getElementById('btLimpar')
+btLimpar.addEventListener('click', limparCampos)
