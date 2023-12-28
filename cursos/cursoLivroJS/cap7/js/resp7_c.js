@@ -6,7 +6,11 @@ c) Elaborar um programa para uma veterinária, o qual leia o preço de uma vacin
 A Figura 7.7 apresenta a tela inicial do programa para um cliente sem convênio. Já a Figura 7.8 exibe a página para um cliente que possui convênio. Observe que a caixa de seleção não deve ser exibida no início do programa.
 */
 
-function temConvenio(){
+
+function verificarConvenio(){
+  /*
+  Esta função verificar se a opção "SIM" está marcada. Caso esteja, a lista de convênios será exibida para que possa se escolher o convênio.
+  */
   if(rbSim.checked){
     pConvenio.className = 'exibe'
     return true
@@ -17,7 +21,64 @@ function temConvenio(){
 }
 const rbSim = document.getElementById('rbSim')
 const rbNao = document.getElementById('rbNao')
-rbSim.addEventListener('change', temConvenio)
-rbNao.addEventListener('change', temConvenio)
+rbSim.addEventListener('change', verificarConvenio)
+rbNao.addEventListener('change', verificarConvenio)
 
 
+
+function buscarConvenio(){
+  /*
+  Esta função captura o convênio que foi selecionado para que possa realizar o desconto para pagamento.
+  */
+  if(rbSim.checked){
+    const nome = inConvenio.selectedIndex
+    const convenio = inConvenio.options[nome].text
+    return convenio
+  }
+}
+const inConvenio = document.getElementById('inConvenio')
+inConvenio.addEventListener('change', buscarConvenio)
+
+
+function calcularDesconto(){
+  /*
+  Esta função irá calcular o valor a ser pago por ter ou não algum convênio.
+  */
+  const inValor = document.getElementById('inValor')
+  const outDesconto = document.getElementById('outDesconto')
+  const outPagar = document.getElementById('outPagar')
+  
+  const valor = Number(inValor.value)
+  const desconto = outDesconto
+  const pagar = outPagar
+  
+  if(valor == '' || valor < 1){
+    alert('Por vafor, digite o valor!')
+    return
+  }
+  
+  // tem ou não algum convênio e qual deles?
+  const temConvenio = verificarConvenio()
+  const tipoDeConvenio = buscarConvenio()
+  
+  let valorDeDesconto
+  let valorTotal
+  if(temConvenio == false){
+    valorDeDesconto = valor * .1
+    valorTotal = valor - valorDeDesconto
+  } else{
+    if (inConvenio.value == 'amigo') {
+      valorDeDesconto = valor * .2
+      valorTotal = valor - valorDeDesconto
+    } else {
+      valorDeDesconto = valor * .5
+      valorTotal = valor - valorDeDesconto
+    }
+  }
+  
+  desconto.textContent = 'Desconto R$: ' + valorDeDesconto.toFixed(2)
+  pagar.textContent = 'A Pagar R$: ' + valorTotal.toFixed(2)
+  
+}
+const btCalcular = document.getElementById('btCalcular')
+btCalcular.addEventListener('click', calcularDesconto)
