@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo 8.0</title>
+</head>
+
+<body>
+  <p>Primeiro Parágrafo</p>
+  <p>Segundo Parágrafo</p>
+
+<script>
+// como salvar em local e apagar
+  localStorage.setItem('idade', 36)
+  const idade = Number(localStorage.getItem('idade'))
+  const soma = idade + 1
+  alert(soma)
+  
+  localStorage.removeItem('idade')
+  //localStorage.clear() // apaga tudo
+  
+  
+  // tratando da getElementsByTagName()
+  const x = document.getElementsByTagName('p')
+  
+  x[0].style.color = 'Red'
+  x[1].style.backgroundColor = 'blue'
+  x[1].style.color = 'white'
+</script>
+</body>
+
+</html>
