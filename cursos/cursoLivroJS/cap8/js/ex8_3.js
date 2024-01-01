@@ -119,3 +119,16 @@ function verificarVencedor(){
 }
 const btVencedor = document.getElementById('btVencedor')
 btVencedor.addEventListener('click', verificarVencedor)
+
+
+
+function limparApostas(){
+  if(confirm('Confirma a limpeza?')){
+    localStorage.removeItem('melanciaNome')
+    localStorage.removeItem('melanciaPeso')
+    
+    mostrarApostas()
+  }
+}
+const btLimpar = document.getElementById('btLimpar')
+btLimpar.addEventListener('click', limparApostas)
