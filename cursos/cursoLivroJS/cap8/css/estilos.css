@@ -21,3 +21,8 @@ img{
   color: green;
   background-color: white;
 }
+
+img.normal{
+  width: 377px;
+  height: 377px;
+}
