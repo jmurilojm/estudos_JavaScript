@@ -34,7 +34,8 @@ btAdicionar.addEventListener('click', function(){
   inProduto.focus()
   localStorage.setItem('lista', listaDeCompras)
   
-  retorno.textContent = localStorage.getItem('lista')
+  //retorno.textContent = localStorage.getItem('lista')
+  mostrarProdutos()
 })
 
 
@@ -48,3 +49,18 @@ btLimpar.addEventListener('click', function(){
     alert('Não existe lista para apagar.')
   }
 })
+
+
+
+function mostrarProdutos(){
+  const outRetorno = document.getElementById('outRetorno')
+  
+  let retorno = outRetorno
+  
+  let produtos = ''
+  for(let i = 0; i < listaDeCompras.length; i++){
+    produtos += listaDeCompras[i] + '\n'
+  }
+  
+  return retorno.textContent = produtos
+}
