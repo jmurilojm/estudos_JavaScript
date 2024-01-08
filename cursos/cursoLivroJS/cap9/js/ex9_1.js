@@ -1,3 +1,9 @@
+/*
+Vamos construir um exemplo em que esses métodos são utilizados. Como de costume, inicie pela criação da pasta cap9 e, dentro dela, css, img e js. Nosso primeiro programa tem como objetivo adicionar itens em uma lista, processo semelhante ao já desenvolvido em outras páginas deste livro. Contudo, os itens da lista são agora inseridos a partir de tags HTML criadas pelo programa JavaScript. Também será possível selecionar linhas, recuperar seu conteúdo e remover uma tag no documento. A Figura 9.2 ilustra a página web do programa "Tarefas do Dia, já com algumas tarefas adicionadas.
+*/
+
+
+
 function adicionarTarefa(){
   const inTarefa = document.getElementById('inTarefa')
   
