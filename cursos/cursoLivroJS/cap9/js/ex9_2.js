@@ -1,3 +1,9 @@
+/*
+Vamos construir um exemplo em que um programa JavaScript faz a inserção de imagens na página. Pensei em uma brincadeira que pode ser feita com crianças para que elas calculem a soma de moedas exibidas de forma aleatória na página. A cada execução, o programa deve gerar um novo número de moedas e a criança deve informar a soma e conferir se o cálculo que fez está correto. A Figura 9.5 exibe a página inicial do programa.
+*/
+
+
+
 function exibirMoedas(){
   // gerar número aleatório
   const num1_00 = Math.ceil(Math.random() * 5)
