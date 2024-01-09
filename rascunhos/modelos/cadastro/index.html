@@ -18,15 +18,16 @@
   <main class="main">
     <section class="entradas">
       <p>
-        Números (1 a 100): <input type="number" name="numero" id="numero">
+        Números (1 a 100): <input type="text" name="" id="inNumero">
       </p>
 
       <button onclick="cadastrar()" type="button">Cadastrar</button>
     </section>
 
     <section class="saidas" id="saidas">
-      <p id="listagem">Listagem</p>
-      <button onclick="finalizar()" type="button">Finalizar</button>
+      <p>Números: <span id="outSaida"></span></p>
+      
+      <button onclick="mostraInformacoes()" type="button">Finalizar</button>
       <div id="tela">
         
       </div>

@@ -1,29 +1,33 @@
-let itens = []
+let listaNumeros = []
 
 function cadastrar() {
-  let numero = document.getElementById('numero')
-  let lista = document.getElementById('listagem')
+  const inNumero = document.getElementById('inNumero')
+  const outSaida = document.getElementById('outSaida')
+  
+  const numero = Number(inNumero.value)
+  const saida = outSaida
 
 
-  if (numero.value == '' || numero.value > 100 || itens.indexOf(numero.value) != -1) {
+  if (numero == '' || numero > 100 || listaNumeros.indexOf(numero) != -1) {
     alert('Número existente ou inválido!')
+    return
   } else {
-    itens.push(numero)
-    lista.innerText = itens
-    numero.value = ''
+    listaNumeros.push(numero)
+    saida.textContent = listaNumeros
+    inNumero.value = ''
   }
-  numero.focus()
+  inNumero.focus()
 }
 
 
-function finalizar(){
+function mostraInformacoes(){
   let saida = document.getElementById('tela')
   
-  let quantidade = itens.length
-  let maior = Math.max(itens)
-  let menor = Math.min(itens)
-  let soma = somarLista(itens)
-  let media = soma / quantidade
+  let quantidade = listaNumeros.length
+  let maior = Math.max(...listaNumeros)
+  let menor = Math.min(...listaNumeros)
+  let soma = somarLista(listaNumeros)
+  let media = mediaArray(listaNumeros)
   
   
   saida.innerHTML = 
@@ -34,6 +38,7 @@ function finalizar(){
   '</p><p>Media: '+media+'</p>'
 }
 
+
 function somarLista(parametro){
   let soma = 0
   
@@ -41,4 +46,18 @@ function somarLista(parametro){
     soma += Number(i)
   }
   return soma
+}
+
+
+function mediaArray(array){
+  const tamanho = array.length
+  let soma = 0
+  
+  for (i of array) {
+    soma += Number(i)
+  }
+  
+  const media = (soma / tamanho).toFixed(1)
+  
+  return media
 }
