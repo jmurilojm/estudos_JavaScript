@@ -18,7 +18,11 @@
       return altura * largura * profundidade
     }
 
-    function calcularEquacaoSegundoGrau(a, b, c) {
+    function calcularRaizEquacaoSegundoGrau(a, b, c) {
+      /*
+      Considera-se que os de valores A, B e C, estão, respectivamente, de acordo com a expressão: ax²+bx+c = 0
+      */
+
       const delta = b ** 2 - 4 * a * c;
 
       if (delta < 0) {
@@ -52,12 +56,33 @@
     }
 
 
+    function equacaoSegundoGrau(a, b, c) {
+      /*
+      Considera-se que os de valores A, B e C, estão, respectivamente, de acordo com a expressão: ax²+bx+c = 0
+      */
+
+      delta = b ** 2 - 4 * a * c
+      console.log('∆: ', delta)
+
+      if (delta >= 0) {
+        const raiz_de_delta = delta ** (.5)
+        console.log('Raiz de ∆: ', raiz_de_delta)
+
+        x1 = (-b + raiz_de_delta) / (2 * a)
+        console.log('X¹: ', x1)
+        x2 = (-b - raiz_de_delta) / (2 * a)
+        console.log('X²: ', x2)
+      } else {
+        console.log('Delta Negativo!')
+      }
+    }
 
 
     console.log(areaQuadrada(7, 5))
     console.log(areaCubica(2, 2, 2))
-    console.log(equacaoSegundoGrau(3, -2, -8))
+    console.log(calcularRaizEquacaoSegundoGrau(3, -2, -8))
     console.log(isPrimo(6))
+    equacaoSegundoGrau(3, -2, -8)
   </script>
 </body>
 
