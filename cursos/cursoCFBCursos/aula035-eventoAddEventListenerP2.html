@@ -33,44 +33,44 @@
   <div id="c1" class="container">
     <div id="d1" class="curso">HTML</div>
     <div id="d2" class="curso">CSS</div>
-    <div id="d3" class="curso">JAVASCRIPT</div>
+    <div id="d3" class="curso">JS</div>
     <div id="d4" class="curso">JSON</div>
   </div>
   
-  <button id="btnCopiar" type="button">Copiar</button>
+  <button id="btCopiar" type="button">Copiar</button>
   
-  <div id="c2" class="container">
-    
-  </div>
-
-
-
+  <div id="c2" class="container"></div>
 
 
 <script>
   // 1⁰ obter os elementos que serão trabalhados
   const c1 = document.querySelector('#c1')
   const c2 = document.querySelector('#c2')
-  const btn = document.querySelector('#btnCopiar')
+  const bt = document.querySelector('#btCopiar')
   const cursos = [...document.querySelectorAll('.curso')]
   
-  // 2⁰ 
-  //cursos = [...cursos]
+  
+  
+  // 2⁰ - pegar o elemento wue foi clicado e adicionar a classe .selecionado
   
   cursos.map((e) => {
     e.addEventListener('click', (evento) => {
-      const curso = evento.target;// alvo
-      console.log(curso.innerHTML)
-      curso.classList.toggle('selecionado');// alternar
+      const curso = evento.target;// alvo.pegara a tag específica
+      //console.log(curso.innerHTML)
+      
+      curso.classList.toggle('selecionado');// alternar. Caso não possua a classe, ela será adicionada e o contrário também acontece
     })
   })
   
-  // 3⁰
   
-  btn.addEventListener('click', () => {
+  
+  // 3⁰ - pegar todos os elementos que possui a classe adicionada e separa-los
+  
+  bt.addEventListener('click', () => {
+    // pegar apenas as tags que possuem a classe .selecionado
     const cursosSelecionados = [...document.querySelectorAll('.selecionado')]
-    //console.log(cursosSelecionados)
     
+    // agora pegar os elementos e jogalos em c2 (2⁰ container)
     cursosSelecionados.map((el) => {
       c2.appendChild(el)
     })
