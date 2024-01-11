@@ -56,7 +56,7 @@
   cursos.map((e) => {
     e.addEventListener('click', (evento) => {
       const curso = evento.target;// alvo.pegara a tag específica
-      //console.log(curso.innerHTML)
+      console.log(curso.innerHTML)
       
       curso.classList.toggle('selecionado');// alternar. Caso não possua a classe, ela será adicionada e o contrário também acontece
     })
