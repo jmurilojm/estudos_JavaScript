@@ -59,9 +59,9 @@
   
   cursos.map((e) => {
     e.addEventListener('click', (evento) => {
-      const curso = evento.target
+      const curso = evento.target;// alvo
       console.log(curso.innerHTML)
-      curso.classList.toggle('selecionado')
+      curso.classList.toggle('selecionado');// alternar
     })
   })
   
