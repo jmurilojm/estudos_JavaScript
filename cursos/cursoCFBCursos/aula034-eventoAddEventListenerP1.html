@@ -54,7 +54,7 @@
 
 
 <script>
-// evento com funcoes
+// evento com funcoes, partindo do html
   /*function msg(){
     alert('Olá Mundo!')
   }*/
@@ -62,7 +62,7 @@
     alert('Olá Mundo! - no doc js')
   }
   
-  // tratando direto do js
+// tratando direto do js
   const c3 = document.querySelector('#c3')
   c3.addEventListener('click', msg)
   
@@ -77,6 +77,7 @@
   
   todos.map((e) => {
     e.addEventListener('click', (ev) => {
+      console.log(ev.pointerType)
       const el = ev.target;// alvo
       el.classList.add('destaque')
       console.log(el.innerHTML + 'foi clicado')
