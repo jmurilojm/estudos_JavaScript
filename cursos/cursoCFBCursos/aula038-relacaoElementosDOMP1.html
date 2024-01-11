@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <h1>O Método stopPropagation()</h1>
+  <h1>Relação dos Elementos DOM</h1>
   <hr>
   
   <div id="c1" class="container">
@@ -38,31 +38,15 @@
   </div>
   
 
-
 <script>
-// o evento click em container servirá também para os elementos que estao dentro dele. apara resolver esse problema vai ser utilizado o metodo stopPropagation()
-
-// 1⁰ caso
-// antes do metodo
   const caixa = document.querySelector('#c1')
+  const cursos = [...document.querySelectorAll('.curso')]
   
-  caixa.addEventListener('click', ()=>{
-    console.log('clicou')
-  })
-  
-  
-  
-// 2⁰ caso
-// usando o metodo stopPropagation()
-  // cria-se um array de todos os elementos que estoao dentro da caixa.
-  const d1 = [...document.querySelectorAll('.curso')]
-  
-  // faz a iteracao com .map, passando o mesmo evento de click e pegando quem acionou o evento para poder mandar ele parar com o metodo de .stopPropagation
-  d1.map((elemento)=>{
-    elemento.addEventListener('click', (evento)=>{
-      evento.stopPropagation()
-    })
-  })
+  console.log(caixa.children)
+  console.log(caixa.children[1])
+  console.log(caixa.lastChild)
+  console.log(document.getRootNode())
+  console.log(cursos[0].ownerDocument)
   
 </script>
 </body>
