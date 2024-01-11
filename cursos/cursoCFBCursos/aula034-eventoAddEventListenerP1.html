@@ -67,7 +67,7 @@
   
   c4.addEventListener('click', (evento) => {
     alert('Clicou com arowFunction')
-    console.log(evento.target)
+    console.log(evento.target);// alvo
   })
   
   // pegar todos e add evento
@@ -76,7 +76,7 @@
   
   todos.map((e) => {
     e.addEventListener('click', (ev) => {
-      const el = ev.target
+      const el = ev.target;// alvo
       el.classList.add('destaque')
       console.log(el.innerHTML + 'foi clicado')
     })
