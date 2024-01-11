@@ -60,7 +60,7 @@
       
       curso.classList.toggle('selecionado');// alternar. Caso não possua a classe, ela será adicionada e o contrário também acontece
       
-      // caso seja removiada a selecao, o item retorna
+      // caso seja removiada a selecao, o item retorna(JM)
       if(!(curso.classList == 'selecionado')){
         c1.appendChild(curso)
       }
@@ -83,7 +83,29 @@
   
   
   
-  // 4º - pegar os elementos da caixa2 que nao estao selecionados e colocar na caixa1
+  // 4º - pegar os elementos da caixa2 que nao estao selecionados e colocar na caixa1. Dobre isso, meu codigo foi atribuir um if dentro do 2⁰ passo. Ao desmarcar o elemento ele perde a classe e altomaticamente colta para a caixa1.
+  
+  
+  
+  // 4º - essa opcao foi dada no curso para pegar os elementos da caixa2 que nao estao selecionados e colocar na caixa1
+  
+  /*bt.addEventListener('click', () => {
+    // pegar apenas as tags que possuem a classe .selecionado
+    const cursosSelecionados = [...document.querySelectorAll('.selecionado')]
+  
+    // agora pegar os elementos e jogalos em c2 (2⁰ container)
+    cursosSelecionados.map((el) => {
+      c2.appendChild(el)
+    })
+    
+    
+    // pegando o que não possui a classe .selecionado
+    const cursosNaoSelecionados = [...document.querySelectorAll('.curso:not(.selecionado)')]
+    // caso não possua a classe .selecionado
+    cursosNaoSelecionados.map((el) => {
+      c1.appendChild(el)
+    })
+  })*/
   
 </script>
 </body>
