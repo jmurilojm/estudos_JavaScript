@@ -18,6 +18,26 @@
   <div id="c5">BOOTSTRAP</div>
   <div id="c6">NODEJS</div>
 
+  <hr>
+  
+  <pre>
+    let divC1 = document.getElementById('c1')
+    let divC2 = document.getElementById('c2')
+    let divC3 = document.getElementById('c3')
+    let divC4 = document.getElementById('c4')
+    let divC5 = document.getElementById('c5')
+    let divC6 = document.getElementById('c6')
+    
+    // pegando por Id
+    const arrayDosElementos = [divC1, divC2, divC3, divC4, divC5, divC6]
+    
+    // pegando por Tag
+    const colectionHTML = [...document.getElementsByTagName('div')]
+    
+    
+    console.log(arrayDosElementos)
+    console.log(colectionHTML)
+  </pre>
 
 
 <script>

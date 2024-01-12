@@ -11,8 +11,25 @@
   <h1>Funções Anônimas</h1>
   <hr>
   
-  
-
+  <pre>
+    // não precisa de nome. criada somente na execução
+    
+    //function nome(){comando}
+    
+    let funcaoAnonima = function(){
+    console.log('Ops!')
+    }
+    funcaoAnonima()
+    
+    let somar = function(a,b){
+    console.log(a + b)
+    }
+    somar(5,9)
+    
+    // função construtor
+    const f = new Function('a', 'b', 'return a + b')
+    f(67, 121)
+  </pre>
 
 
 <script>

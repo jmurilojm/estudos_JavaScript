@@ -11,7 +11,21 @@
   <h1>Funções dentro de Funções</h1>
   <hr>
 
-
+  <pre>
+    const soma = (...valores) => {
+    const somar = val => {
+    let calc = 0
+    for(valor of val){
+    calc += valor
+    }
+    return calc
+    }
+    
+    return somar(valores)
+    }
+    
+    console.log(soma(5, 7, 32))
+  </pre>
 
 <script>
   const soma = (...valores) => {

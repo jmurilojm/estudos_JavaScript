@@ -13,6 +13,33 @@
   
   <p>Break = para a execução</p>
   <p>Continue = pula a condição e continua a execução</p>
+  
+  <hr>
+
+  <pre>
+    let x = 0
+  while(x <= 10){
+    console.log('ops! - ' + x)
+    
+    if(x == 3){
+      break
+    }
+    x++
+  }
+  
+  let y = 10
+  let somaDosPares = 0
+  let quantidadeDePares = 0
+  for(let i = 0; i <= y; i++){
+    console.log(i)
+    if(i % 2 == 0){
+      somaDosPares += i;
+      quantidadeDePares++
+      continue
+    }
+  }
+  console.log('Soma = ',somaDosPares, '/ Quantidade = ' + quantidadeDePares)
+  </pre>
 
 
 

@@ -30,7 +30,37 @@
     NODEJS
   </div>
   
-
+  <hr>
+  
+  <pre>
+    let divC1 = document.getElementById('c1')
+    let divC2 = document.getElementById('c2')
+    let divC3 = document.getElementById('c3')
+    let divC4 = document.getElementById('c4')
+    let divC5 = document.getElementById('c5')
+    let divC6 = document.getElementById('c6')
+    
+    console.log(divC1)
+    console.log(divC1.id)
+    console.log(divC1.innerHTML)
+    
+    // alterar conteúdo
+    divC1.innerHTML = 'Mudei!'
+    
+    // array dos elementos
+    const arrayDosElementos = [divC1,divC2,divC3,divC4,divC5,divC6]
+    
+    console.log(arrayDosElementos)
+    
+    for(itens of arrayDosElementos){
+    itens.innerHTML = 'Alterado! Com um For'
+    }
+    
+    arrayDosElementos.map((e) => {
+    e.innerHTML = 'Mudei de novo! kkk... Map'
+    console.log(e)
+    })
+  </pre>
 
 
 <script>
