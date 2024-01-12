@@ -72,9 +72,7 @@
   </main>
 
 <script>
-  let arrCursos = []
-  
-  
+
   // elementos da página 
   const cxConteudo = document.querySelector('#caixaConteudo')
   const inTexto = document.querySelector('#inTexto')
@@ -84,46 +82,58 @@
   
   
   
-// ação do click adicionar
-  btAdicionar.addEventListener('click',()=>{
-    arrCursos.push(inTexto.value)
+  function adicionarCurso(){
+    if(inTexto.value == ''){
+      alert('Preencha o campo "Nome do Curso"!')
+      inTexto.focus()
+      return
+    }
     
-    const novaDiv = document.createElement('div')
+    // cria a caixa
+    const novoElemento = document.createElement('div')
     
-    novaDiv.textContent = inTexto.value
-    novaDiv.setAttribute('class', 'curso')
-    novaDiv.setAttribute('id', 'c'+arrCursos.length)
+    // cria o conteudo e coloca na caixa
+    novoElemento.textContent = inTexto.value
+    cxConteudo.appendChild(novoElemento)
     
-    // adicionando escutador
-    addClasseDeSelecao(novaDiv,'selecao')
+    // confeccionar a caixa
+    novoElemento.setAttribute('class','curso')
     
-    cxConteudo.appendChild(novaDiv)
+    // adicionar evento no elemento
+    novoElemento.addEventListener('click', adicionarSelecao)
+    
     inTexto.value = ''
     inTexto.focus()
-  })
+  }
+  btAdicionar.addEventListener('click', adicionarCurso)
   
   
   
-// evento de selecao
-  function addClasseDeSelecao(nomeItem, nomeClasse){
-    // adicionando escutador
-    nomeItem.addEventListener('click', () => {
-      nomeItem.classList.toggle(nomeClasse)
-    })
+  function adicionarSelecao(e){
+    e.target.classList.toggle('selecao')
   }
   
   
   
-// ação do click apagar selecionados
-  btApagar.addEventListener('click',()=>{
+  function apagar(){
+    if(todosCursos.length == 0){
+      alert('Cadastre pelo menos um Curso.')
+      return
+    }
+    
+    let excluiu = 0
     for(let i = 0; i < todosCursos.length; i++){
-      console.log(todosCursos[i])
-      
-      if(todosCursos[i].classList == 'selecao'){
+      if(todosCursos[i].classList.contains('curso') && todosCursos[i].classList.contains('selecao')){
         cxConteudo.removeChild(todosCursos[i])
+        excluiu++
       }
     }
-  })
+    if(excluiu == 0){
+      alert('Selecione algum Curso.')
+    }
+    
+  }
+  btApagar.addEventListener('click', apagar)
   
 </script>
 </body>
