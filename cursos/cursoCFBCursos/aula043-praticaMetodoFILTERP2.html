@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Método</title>
+  
+  <style>
+    main{
+      display: flex;
+    }
+    .quadro{
+      border: 1px solid black;
+      width: 50%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .curso{
+      border: 2px solid dimgray;
+      border-radius: 5px;
+      padding: 8px 0;
+      margin-bottom: 5px;
+      background-color: lightgray;
+      width: 80%;
+      text-align: center;
+    }
+    .caixaBotoes{
+      width: 80%;
+      margin-top: 10px;
+    }
+    .botao{
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .entrada{
+      margin-bottom: 10px;
+      text-align: center;
+      width: 75%;
+    }
+    .selecao{
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Prática - Método .filter()</h1>
+  <hr>
+  
+  <main>
+    <section id="caixaComandos" class="quadro">
+      <label for="inTexto">Nome do Curso:</label>
+      <input type="text" name="" id="inTexto" class="entrada">
+      
+      <div class="caixaBotoes">
+        <input type="button" value="Adicionar" id="btAdicionar" class="botao">
+        <input type="button" value="Apagar Selecionado" id="btApagar" class="botao">
+      </div>
+    </section>
+    
+    <section id="caixaConteudo" class="quadro">
+      <!--<div class="curso">HTML</div>
+      <div class="curso">CSS</div>
+      <div class="curso">JS</div>
+      <div class="curso">Bootstrap</div>
+      <div class="curso">React</div>-->
+    </section>
+  </main>
+
+<script>
+  let arrCursos = []
+  
+  
+  // elementos da página 
+  const cxConteudo = document.querySelector('#caixaConteudo')
+  const inTexto = document.querySelector('#inTexto')
+  const btAdicionar = document.querySelector('#btAdicionar')
+  const btApagar = document.querySelector('#btApagar')
+  const todosCursos = document.getElementsByClassName('curso')
+  
+  
+  
+// ação do click adicionar
+  btAdicionar.addEventListener('click',()=>{
+    arrCursos.push(inTexto.value)
+    
+    const novaDiv = document.createElement('div')
+    
+    novaDiv.textContent = inTexto.value
+    novaDiv.setAttribute('class', 'curso')
+    novaDiv.setAttribute('id', 'c'+arrCursos.length)
+    
+    // adicionando escutador
+    addClasseDeSelecao(novaDiv,'selecao')
+    
+    cxConteudo.appendChild(novaDiv)
+    inTexto.value = ''
+    inTexto.focus()
+  })
+  
+  
+  
+// evento de selecao
+  function addClasseDeSelecao(nomeItem, nomeClasse){
+    // adicionando escutador
+    nomeItem.addEventListener('click', () => {
+      nomeItem.classList.toggle(nomeClasse)
+    })
+  }
+  
+  
+  
+// ação do click apagar selecionados
+  btApagar.addEventListener('click',()=>{
+    for(let i = 0; i < todosCursos.length; i++){
+      console.log(todosCursos[i])
+      
+      if(todosCursos[i].classList == 'selecao'){
+        cxConteudo.removeChild(todosCursos[i])
+      }
+    }
+  })
+  
+</script>
+</body>
+
+</html>
