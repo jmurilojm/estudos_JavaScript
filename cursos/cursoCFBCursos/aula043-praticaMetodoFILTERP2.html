@@ -35,14 +35,22 @@
     .botao{
       width: 100%;
       margin-bottom: 5px;
+      padding: 5px 0;
+    }
+    .btEntrada{
+      background-color: lightgreen;
+    }
+    .btExcluir{
+      background-color: lightcoral;
     }
     .entrada{
       margin-bottom: 10px;
       text-align: center;
       width: 75%;
+      padding: 5px 0;
     }
     .selecao{
-      background-color: green;
+      background-color: lightpink;
     }
   </style>
 </head>
@@ -57,8 +65,8 @@
       <input type="text" name="" id="inTexto" class="entrada">
       
       <div class="caixaBotoes">
-        <input type="button" value="Adicionar" id="btAdicionar" class="botao">
-        <input type="button" value="Apagar Selecionado" id="btApagar" class="botao">
+        <input type="button" value="Adicionar" id="btAdicionar" class="botao btEntrada">
+        <input type="button" value="Apagar Selecionado" id="btApagar" class="botao btExcluir">
       </div>
     </section>
     
@@ -72,6 +80,8 @@
   </main>
 
 <script>
+  let listaCursos = [] // essa lista foi elaborada para que possa facilitar na implantacao de um mecanismo de busca dos cursos adicionados.
+
 
   // elementos da página 
   const cxConteudo = document.querySelector('#caixaConteudo')
@@ -88,6 +98,9 @@
       inTexto.focus()
       return
     }
+    
+    // adicona a lista de cursos
+    listaCursos.push(inTexto.value)
     
     // cria a caixa
     const novoElemento = document.createElement('div')
@@ -121,9 +134,16 @@
       return
     }
     
-    let excluiu = 0
+    let excluiu = 0 // esse contador auxiliará no momento que solicitar a exclusao de curso, enviando uma mensagem pedindo que selecione algum curso para que se faça a exclusão.
     for(let i = 0; i < todosCursos.length; i++){
       if(todosCursos[i].classList.contains('curso') && todosCursos[i].classList.contains('selecao')){
+        
+        // apagar da lista de cursos
+        for(let c = 0; c < listaCursos.length; c++){
+          if(todosCursos[i].textContent == listaCursos[c])
+          listaCursos.splice(c,1)
+        }
+        
         cxConteudo.removeChild(todosCursos[i])
         excluiu++
       }
