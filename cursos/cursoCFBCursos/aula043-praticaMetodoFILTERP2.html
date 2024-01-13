@@ -81,8 +81,8 @@
 
 <script>
   let listaCursos = [] // essa lista foi elaborada para que possa facilitar na implantacao de um mecanismo de busca dos cursos adicionados.
-
-
+  
+  
   // elementos da página 
   const cxConteudo = document.querySelector('#caixaConteudo')
   const inTexto = document.querySelector('#inTexto')
@@ -92,29 +92,30 @@
   
   
   
-  function adicionarCurso(){
-    if(inTexto.value == ''){
+  function adicionarCurso() {
+    if (inTexto.value == '') {
       alert('Preencha o campo "Nome do Curso"!')
       inTexto.focus()
       return
     }
-    
+  
     // adicona a lista de cursos
     listaCursos.push(inTexto.value)
-    
+  
     // cria a caixa
     const novoElemento = document.createElement('div')
-    
+  
     // cria o conteudo e coloca na caixa
     novoElemento.textContent = inTexto.value
     cxConteudo.appendChild(novoElemento)
-    
+  
     // confeccionar a caixa
-    novoElemento.setAttribute('class','curso')
-    
+    novoElemento.setAttribute('class', 'curso')
+  
     // adicionar evento no elemento
     novoElemento.addEventListener('click', adicionarSelecao)
-    
+  
+  
     inTexto.value = ''
     inTexto.focus()
   }
@@ -122,36 +123,40 @@
   
   
   
-  function adicionarSelecao(e){
+  function adicionarSelecao(e) {
     e.target.classList.toggle('selecao')
   }
   
   
   
-  function apagar(){
-    if(todosCursos.length == 0){
+  function apagar() {
+    if (todosCursos.length == 0) {
       alert('Cadastre pelo menos um Curso.')
       return
     }
-    
+  
+  
     let excluiu = 0 // esse contador auxiliará no momento que solicitar a exclusao de curso, enviando uma mensagem pedindo que selecione algum curso para que se faça a exclusão.
-    for(let i = 0; i < todosCursos.length; i++){
-      if(todosCursos[i].classList.contains('curso') && todosCursos[i].classList.contains('selecao')){
-        
-        // apagar da lista de cursos
-        for(let c = 0; c < listaCursos.length; c++){
-          if(todosCursos[i].textContent == listaCursos[c])
-          listaCursos.splice(c,1)
-        }
-        
-        cxConteudo.removeChild(todosCursos[i])
+    let indicesParaExclusao = [] // armazena os elementos que possui a classe .selecao, para que no fim do loop for possa excluilos com o metodo map()
+  
+    // verificar quias elementos possui a classe .selecao e mandar para o indice para array
+    for (let i = 0; i < todosCursos.length; i++) {
+      if (todosCursos[i].classList.value == 'curso selecao') {
+        indicesParaExclusao.push(todosCursos[i])
         excluiu++
       }
     }
-    if(excluiu == 0){
+  
+    // excluir os elementos que ficaram guardados no array
+    indicesParaExclusao.map((e) => {
+      cxConteudo.removeChild(e)
+    })
+  
+  
+    if (excluiu == 0) {
       alert('Selecione algum Curso.')
-    }
-    
+    } // caso nehum curso tenha sido selecionado, sera alertado  
+  
   }
   btApagar.addEventListener('click', apagar)
   
