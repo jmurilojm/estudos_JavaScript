@@ -1,0 +1,56 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+
+body{
+  background-color: lightgray;
+}
+
+
+h1{
+  text-align: center;
+  margin: 4% 0;
+}
+
+
+.inEntrada{
+  display: flex;
+  width: 90%;
+  margin:5% auto;
+  height: 50px;
+}
+.inText{
+  width: 70%;
+  padding: 0 15px;
+}
+.btAdicionar{
+  width: 30%;
+  background-color: green;
+  color: #fff;
+  border-radius: 0 10px 10px 0;
+}
+
+
+.tarefas{
+  background-color: #fff;
+}
+.tarefa{
+  border: 1px solid blue;
+  height: 50px;
+}
+.tarefa .icone{
+  border: 1px solid orange;
+  width: 20%;
+}
+.tarefa .texto{
+  border: 1px solid green;
+  width: 30%
+}
+.tarefa .lixeira{
+  border: 1px solid purple;
+  width: 10%;
+}
