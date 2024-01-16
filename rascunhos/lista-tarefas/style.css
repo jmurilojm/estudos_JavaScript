@@ -23,7 +23,7 @@ h1{
   margin:5% auto;
   height: 50px;
 }
-.inText{
+.inTexto{
   width: 70%;
   padding: 0 15px;
 }
@@ -35,22 +35,49 @@ h1{
 }
 
 
-.tarefas{
-  background-color: #fff;
+.outTarefas{
+  width: 90%;
+  margin: auto;
 }
 .tarefa{
-  border: 1px solid blue;
+  border: 1px solid gray;
+  background-color: #fff;
   height: 50px;
+  margin-top: 2%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .tarefa .icone{
-  border: 1px solid orange;
-  width: 20%;
+  width: 15%;
+  text-align: center;
 }
 .tarefa .texto{
-  border: 1px solid green;
-  width: 30%
+  width: 55%;
 }
 .tarefa .lixeira{
-  border: 1px solid purple;
-  width: 10%;
+  width: 30%;
+  text-align: center;
+  background-color: red;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+
+.tarefa.feito{
+  background-color: lightgreen;
+}
+.tarefa.feito .icone span{
+  color: green;
+}
+.tarefa.feito .texto{
+  text-decoration: line-through;
+  color: gray;
+}
+.tarefa.feito .lixeira{
+  background-color: gray;
 }
