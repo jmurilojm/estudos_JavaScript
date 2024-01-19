@@ -23,6 +23,12 @@
       border: 1px solid black;
       border-radius: 5px;
     }
+    
+    .botao{
+      display: block;
+      width: 96%;
+      margin: auto;
+    }
   </style>
 </head>
 
@@ -74,6 +80,7 @@
 
     let listaCarros = [];
     inNome.focus();
+    
 
     /*
     Verificar radios e liberar opções de blindagem e munição caso rbMilitar esteja marcado.
@@ -98,14 +105,46 @@
 
       // percorre a lista criando uma div para cada elemento e adicionado a elemento outQuadro
       listaCarros.forEach((car) => {
+        // criando div de informações 
         const novaDiv = document.createElement('div');
-
         novaDiv.setAttribute('class', 'veiculo');
-
+        novaDiv.setAttribute('data-nome',car.nome)
         novaDiv.innerHTML = `Nome: ${car.nome}<br>Portas: ${car.portas}<br>Blindagem: ${car.blindagem}<br>Municao: ${car.municao}`;
 
+        // criando botão apagar
+        /*const botao = document.createElement('button');
+        botao.setAttribute('class', 'botao');
+        botao.innerHTML = 'Apagar';*/
+        const bt = criarBotao()
+        novaDiv.appendChild(bt);
+        
         outQuadro.appendChild(novaDiv);
       })
+    }
+    
+    
+    const removerCarro = (quem) => {
+      listaCarros = listaCarros.filter((e) => {
+        return e.nome != quem
+      })
+    }
+    
+    
+    function criarBotao(){
+      const botao = document.createElement('button');
+      botao.setAttribute('class','botao');
+      botao.textContent = 'Apagar'
+      
+      botao.addEventListener('click',(e)=>{
+        //console.log(e.target.parentNode.dataset.nome);
+        const clicado = e.target.parentNode.dataset.nome;
+        
+        removerCarro(clicado);
+        
+        // chamar função para atualizar lista
+        gerenciarExibicaoCarros();
+      })
+      return botao
     }
 
 
@@ -130,33 +169,6 @@
 
       gerenciarExibicaoCarros();
     })
-
-
-    // JM
-    // adicionando conteúdo ao quadro
-    /*const btAdicionar = document.querySelector('#btAdicionar');
-    btAdicionar.addEventListener('click',()=>{
-      
-      const nome = document.querySelector('#inNome').value;
-      const portas = document.querySelector('#inPortas').value;
-      let blindagem = ''
-      let municao = ''
-      let tipo = ''
-      
-      // criando o carro
-      const carro = new Carro(nome,portas)
-      
-      if(rbNormal.checked == true){
-        carro.setTipo('Normal');
-      } else{
-        carro.setTipo('Militar');
-        carro.setBlindagem(document.querySelector('#inBlindagem').value);
-        carro.setMunicao(document.querySelector('#inMunicao').value);
-      }
-      
-      
-      outQuadro.textContent = carro.getInfor()
-    });*/
 
 
     // classes
