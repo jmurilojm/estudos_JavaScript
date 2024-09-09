@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="Pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agenda de Serviços</title>
+</head>
+
+<body>
+  <h1>Atendimentos</h1>
+  <hr>
+
+  <form action="">
+    <p>
+      <label for="">Nome do Cliente:</label>
+      <input type="text" placeholder="Nome" id="inNome">
+    </p>
+    <p>
+      <label for="">Data para o Atendimento:</label>
+      <input type="date" name="" id="inData">
+    </p>
+    <p>
+      <label for="">Descrição:</label>
+      <input type="text" id="inDescricao">
+    </p>
+
+    <input type="submit" value="Cadastrar Atendimento" onclick="registrar()">
+  </form>
+  <hr>
+
+  <p id="outRegistro"></p>
+
+  <script>
+    let registrados = [];
+  
+    function registrar() {
+      event.preventDefault();
+      const nome = document.getElementById('inNome');
+      const data = document.getElementById('inData');
+      const descricao = document.getElementById('inDescricao');
+      const saida = document.getElementById('outRegistro');
+
+      // formatar data - desestruturação.
+      const [ano, mes, dia] = data.value.split('-');
+      const dataFormatada = `${dia}-${mes}-${ano}`;
+      const diasRestantes = calcularDias(dia,mes,ano);
+      
+      // se o retorno for -1, nao sera possivel o agendamento.
+      if(diasRestantes == -1){
+        alert('Data inválida para agendamento!')
+        return;
+      }
+
+      saida.innerText = `${nome.value} | Agendado: ${dataFormatada} | Resta: ${diasRestantes} dias | ${descricao.value}`;
+      registrados.push({nom:nome.value, dat:dataFormatada, int:diasRestantes, desc: descricao.value});
+      console.log(registrados);
+    }
+    
+    
+    function calcularDias(diaAtual,mesAtual,anoAtual){
+      // data de hoje.
+      const dataHoje = new Date();
+
+      let diferencaEntreDias = 0;
+      const diferencaEntreMes = mesAtual - Number(dataHoje.getMonth() +1);
+      const diferencaEntreAno = anoAtual - Number(dataHoje.getFullYear());
+      
+      // acrescentar 30+ apos diferenca de um mês.
+      if(diferencaEntreMes > 0){
+        diferencaEntreDias = (diaAtual - Number(dataHoje.getDate())) + diferencaEntreMes * 30;
+      } else{
+        diferencaEntreDias = diaAtual - Number(dataHoje.getDate());
+      }
+      
+      // acrescentar 365+ apos diferenca de um ano.
+      if (diferencaEntreAno > 0) {
+        diferencaEntreDias += diferencaEntreAno * 365;
+      }
+      
+      // verificar se o dia, mes ou ano esta sendo inserida com atraso.
+      if(diferencaEntreDias < 0 || diferencaEntreMes < 0 || diferencaEntreAno < 0){
+        // se tiver em atrazo retorna -1.
+        return -1
+      }
+      
+      return diferencaEntreDias;
+    }
+    
+  </script>
+
+</body>
+
+</html>

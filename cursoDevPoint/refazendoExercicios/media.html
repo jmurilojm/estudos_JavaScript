@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Cálculo de Média</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" placeholder="Digite um número" id="txtN1">
+    <input type="text" placeholder="Digite outro número" id="txtN2">
+    <input type="submit" value="Calcular Média" onclick="media()">
+  </form>
+
+  <p id="outResultado">...</p>
+
+  <script>
+    function media() {
+      event.preventDefault();
+
+      const n1 = document.getElementById('txtN1').value;
+      const n2 = document.getElementById('txtN2').value;
+      const resultado = document.getElementById('outResultado');
+
+      resultado.innerText = 'O média é: ' + (Number(n1) + Number(n2)) / 2;
+    }
+  </script>
+</body>
+
+</html>

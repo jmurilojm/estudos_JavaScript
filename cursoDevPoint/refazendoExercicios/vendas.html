@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Vendas - Lista de Produtos</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" placeholder="Nome do Produto" id="txtNomeProduto">
+    <input type="text" placeholder="Valor Unitário" id="txtValorUnitario">
+    <input type="text" placeholder="quatidadeItem" id="txtQuatidadeItem">
+    
+    <input type="submit" value="Adicionar" onclick="adicionar()">
+  </form>
+
+  <p>Compras Realizadas - Valor Total: R$ <span id="txtTotalPagar">0.00</span></p>
+  <p id="outRetorno"></p>
+
+  <script>
+    let soma = 0;
+    function adicionar() {
+      event.preventDefault();
+
+      const nomeProduto = document.getElementById('txtNomeProduto').value;
+      const valorUnitario = document.getElementById('txtValorUnitario').value;
+      const quatidadeItem = document.getElementById('txtQuatidadeItem').value;
+      const retorno = document.getElementById('outRetorno');
+      const totalPagar = document.getElementById('txtTotalPagar');
+      
+      const total = (Number(quatidadeItem) * Number(valorUnitario)).toFixed(2);
+      
+      soma += Number(total)
+      totalPagar.innerText = (soma).toFixed(2);
+      
+      retorno.innerText += '• ' + nomeProduto + ' | Qtd.: ' + quatidadeItem + ' | Unid.: ' + Number(valorUnitario).toFixed(2) + ' | R$ ' + total + '\n';
+    }
+  </script>
+</body>
+
+</html>

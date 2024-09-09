@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Reserva de Poltrona</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" placeholder="Nome do Filme" id="txtFilme">
+    <input type="text" placeholder="Digite seu Nome" id="txtNome">
+    <input type="submit" value="Reservar" onclick="reservar()">
+  </form>
+
+  <p id="outResultado">...</p>
+
+  <script>
+    function reservar() {
+      event.preventDefault();
+
+      const filme = document.getElementById('txtFilme').value;
+      const nome = document.getElementById('txtNome').value;
+      const resultado = document.getElementById('outResultado');
+
+      resultado.innerText = 'Poltrona para o Filme ' + filme + ' foi reservada para ' + nome;
+    }
+  </script>
+</body>
+
+</html>

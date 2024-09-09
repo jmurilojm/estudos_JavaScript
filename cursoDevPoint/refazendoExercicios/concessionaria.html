@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Consórcio de Veículo</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" placeholder="Nome do Veículo" id="txtNome">
+    <input type="text" placeholder="Valor" id="txtValor">
+    <input type="submit" value="Calcular Aquisição" onclick="calcular()">
+  </form>
+
+  <p id="outResultado">...</p>
+
+  <script>
+    function calcular() {
+      event.preventDefault();
+
+      const nome = document.getElementById('txtNome').value;
+      const valor = document.getElementById('txtValor').value;
+      const resultado = document.getElementById('outResultado');
+      
+      const entrada = (Number(valor) * 0.5).toFixed(2);
+      const parcelas = (entrada / 12).toFixed(2);
+
+      resultado.innerText = 'Veículo: ' + nome + '\nEntrada: R$ ' + entrada + '\nParcelas: +12x de R$ ' + parcelas + ' sem juros.';
+    }
+  </script>
+</body>
+
+</html>

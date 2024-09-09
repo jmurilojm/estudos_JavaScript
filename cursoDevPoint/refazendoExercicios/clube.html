@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Membros do Clube</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" placeholder="Digite sua Idade" id="txtIdade">
+    <input type="text" placeholder="Membro do Clube (s/n)?" id="txtMembro">
+    <input type="submit" value="Verificar Desconto" onclick="validar()">
+  </form>
+
+  <p id="outResultado">...</p>
+
+  <script>
+    function validar() {
+      event.preventDefault();
+
+      const idade = document.getElementById('txtIdade').value;
+      const membro = document.getElementById('txtMembro').value;
+      const resultado = document.getElementById('outResultado');
+
+      if(Number(idade) >= 18 && membro === 'S'){
+        resultado.innerText = 'Desconto de 50%';
+      } else if(Number(idade) < 18 || membro === 'S'){
+        resultado.innerText = 'Desconto de 25%';
+      } else{
+        resultado.innerText = 'Desconto de 10%';
+      }
+    }
+  </script>
+</body>
+
+</html>

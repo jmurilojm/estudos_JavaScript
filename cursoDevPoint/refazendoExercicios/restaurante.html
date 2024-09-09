@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Restaurante</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" placeholder="Consumo em gramas" id="txtPeso">
+    <input type="text" placeholder="Valor por quilograma" id="txtKg">
+    
+    <input type="submit" value="Calcular Consumo" onclick="calcular()">
+  </form>
+
+  <p id="outResultado">...</p>
+
+  <script>
+    function calcular() {
+      event.preventDefault();
+
+      const peso = document.getElementById('txtPeso').value;
+      const kg = document.getElementById('txtKg').value;
+      const resultado = document.getElementById('outResultado');
+      
+      const valorConsumo = ((Number(peso) / 1000) * Number(kg)).toFixed(2);
+      
+      resultado.innerText = 'A pagar pelo consumo: R$ ' + valorConsumo;
+    }
+  </script>
+</body>
+
+</html>

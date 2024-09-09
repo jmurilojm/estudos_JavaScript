@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Início</h1>
+  <hr>
+  
+  <form action="">
+    <input type="text" placeholder="Digite um nome" id="txtNome">
+    <input type="submit" value="Processar" onclick="saudacao()">
+  </form>
+  
+  <p id="outResultado">...</p>
+  
+  <script>
+    //alert('Hello, World!');
+    function saudacao(){
+      event.preventDefault();
+      //alert('Olá!');
+      
+      const nome = document.getElementById('txtNome');
+      const resultado = document.getElementById('outResultado');
+      
+      //alert('Olá, ' + nome.value + '!');
+      resultado.innerText = 'Olá, ' + nome.value + '!';
+    }
+  </script>
+</body>
+
+</html>

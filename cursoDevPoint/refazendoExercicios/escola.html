@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudos Dev</title>
+</head>
+
+<body>
+  <h1>Escola - Cálculo de Média</h1>
+  <hr>
+
+  <form action="">
+    <input type="text" placeholder="Nome do Aluno" id="txtNome">
+    <input type="text" placeholder="1ª Nota" id="txtN1">
+    <input type="text" placeholder="2ª Nota" id="txtN2">
+    <input type="text" placeholder="3ª Nota" id="txtN3">
+    <input type="text" placeholder="4ª Nota" id="txtN4">
+    
+    <input type="submit" value="Calcular Média" onclick="media()">
+  </form>
+
+  <p id="outResultado">...</p>
+
+  <script>
+    function media() {
+      event.preventDefault();
+
+      const nome = document.getElementById('txtNome').value;
+      const n1 = document.getElementById('txtN1').value;
+      const n2 = document.getElementById('txtN2').value;
+      const n3 = document.getElementById('txtN3').value;
+      const n4 = document.getElementById('txtN4').value;
+      const resultado = document.getElementById('outResultado');
+      
+      // validacao
+      if(n1 === '' || n2 === '' || n3 === '' || n4 === ''){
+        alert('Informe todas as Notas!');
+        return;
+      }
+      
+      const media = ((Number(n1) + Number(n2) + Number(n3) + Number(n4)) / 4).toFixed(1);
+      const situacao = media >= 7 ? 'Aprovado!' : 'Reprovado!';
+      
+      // estilizar
+      if(situacao === 'Aprovado!'){
+        resultado.style.color = 'green';
+      } else{
+        resultado.style.color = 'red';
+      }
+      
+      resultado.innerText = 'Aluno: ' + nome + '\nMédia = ' + media + '\nSiuação: ' + situacao;
+    }
+  </script>
+</body>
+
+</html>
