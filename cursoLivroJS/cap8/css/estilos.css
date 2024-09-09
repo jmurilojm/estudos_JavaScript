@@ -1,0 +1,28 @@
+img{
+  width: 100%;
+}
+
+.oculta{
+  display: none;
+}
+.exibe{
+  display: inline;
+}
+
+.coresBrasil{
+  color: white;
+  background-color: green;
+}
+.coresPelotas{
+  color: blue;
+  background-color: yellow;
+}
+.coresFarroupilha{
+  color: green;
+  background-color: white;
+}
+
+img.normal{
+  width: 377px;
+  height: 377px;
+}
