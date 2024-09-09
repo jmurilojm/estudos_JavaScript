@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo 6.11</title>
+</head>
+
+<body>
+<script>
+/*
+Um cuidado especial com a manipulação de datas em JavaScript é necessário quando quisermos exibir o mês de uma data no formato dd/mm/aaaa. A variação do mês na linguagem JavaScript inicia em 0 e vai até 11. Para o dia e o ano, não há esse problema. Note no script a seguir (ex6_11.html) e na Figura 6.13 que o mês de janeiro é exibido como 0.
+*/
+
+  const hoje = new Date()
+  const dia = hoje.getDate()
+  const mes = hoje.getMonth() + 1
+  const ano = hoje.getFullYear()
+  
+  alert('Hoje: ' + hoje + '\nDia: ' + dia + '/' + mes + '/' + ano)
+</script>
+</body>
+
+</html>

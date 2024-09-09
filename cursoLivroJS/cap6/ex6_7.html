@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo 6.7</title>
+</head>
+
+<body>
+  <h1>Programa Data Atual</h1>
+
+<script>
+  /*
+  Exemplo 6.7 – Programa exibe a data atual e seguinte(ex6_7.html)
+  
+  Os métodos getDate(), getMonth() e getFullYear() são utilizados para obter, respectivamente, o dia, o mês e o ano de uma data. Já os métodos setDate(), setMonth() e setFullYear() permitem alterar o dia, o mês e o ano da data.
+  */
+  
+  let hoje = new Date()
+  let amanha = new Date()
+  
+  amanha.setDate(amanha.getDate() + 1)
+  
+  
+  alert('Hoje: ' + hoje.getDate() + '\nAmanhã: ' + amanha.getDate())
+  
+</script>
+</body>
+
+</html>
