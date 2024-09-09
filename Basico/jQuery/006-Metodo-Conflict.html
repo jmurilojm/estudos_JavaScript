@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Método Conflict</title>
+</head>
+
+<body>
+  <h1>jQuery</h1>
+  <hr>
+  <h3>Conflict</h3>
+  <h4>Como fazer uso do Método $.noConflict()</h4>
+
+  
+
+
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    const jm = $.noConflict(); // No lugar do $ sa-se jQuery ou o nome da variavel.
+    jQuery(document).ready(function() {
+      jQuery('h1').css('fontSize', '50px').css('textAlign', 'center');
+      jm('h3').css({
+        textAlign: 'center',
+        textDecoration: 'underline'
+      });
+      jm('h4').css({
+        color: 'white',
+        backgroundColor: 'dodgerblue',
+        textAlign: 'center'
+      });
+
+    });
+  </script>
+</body>
+
+</html>

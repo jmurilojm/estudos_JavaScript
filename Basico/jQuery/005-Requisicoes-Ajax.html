@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax</title>
+</head>
+
+<body>
+  <h1>jQuery</h1>
+  <hr>
+  <h3>AJAX</h3>
+  <h4>Como fazer uso do AJAX</h4>
+
+  <p id="p1">Ambiente de informação</p>
+  <button id="btnBuscar">Buscar informações</button>
+  <hr>
+
+  <p id="p2">Objeto ViaCep</p>
+  <button id="btnLocal">Local</button>
+  <hr>
+
+  <input type="text" name="" id="inCep" placeholder="CEP">
+  <input type="text" id="inLogradouro" placeholder="Logradouro" disabled>
+  <input type="text" id="inComplemento" placeholder="Complemento" disabled>
+  <input type="text" name="" id="inCidade" placeholder="Cidade" disabled>
+  <input type="text" name="" id="inUf" placeholder="Estado" disabled>
+  <input type="text" name="" id="inDdd" placeholder="DDD" disabled>
+  <hr>
+
+  <input type="text" id="inNome" placeholder="Seu Nome">
+  <input type="email" id="inEmail" placeholder="E-mail">
+  <textarea name="" id="inMensagem" cols="30" rows="10" placeholder="Digite sua Mensagem"></textarea>
+  <button id="btnEnviar">Enviar Mensagem</button>
+
+ 
+
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('h1').css('fontSize', '50px').css('textAlign', 'center');
+      $('h3').css({
+        textAlign: 'center',
+        textDecoration: 'underline'
+      });
+      $('h4').css({
+        color: 'white',
+        backgroundColor: 'dodgerblue',
+        textAlign: 'center'
+      });
+
+
+      // Requisição.
+      $('#btnBuscar').click(function() {
+        $('#p1').load('arquivo.txt');
+      })
+
+      $('#btnLocal').click(function() {
+        $('#p2').load('https://viacep.com.br/ws/58500000/json/');
+      })
+
+      // Recebimento de dados.
+      $('#inCep').blur(function() {
+        const cep = $(this).val();
+        $.get(`https://viacep.com.br/ws/${Number(cep)}/json/`, function(dados, status) {
+          //console.log(dados.erro, status);
+          if (dados.erro !== 'true') {
+            $('#inLogradouro').val(dados.logradouro);
+            $('inComplemento').val(dados.complemento);
+            $('#inCidade').val(dados.localidade);
+            $('#inUf').val(dados.uf);
+            $('#inDdd').val(dados.ddd);
+            $('#inCep').css('backgroundColor', '#DCEDC8');
+          } else {
+            //alert('CEP não encontrado!');
+            $('#inCep').val('CEP não encontrado!');
+            $('#inCep').css('backgroundColor', '#ffcdd2');
+          }
+        });
+      });
+      $('#inCep').click(function() {
+        $(this).val('');
+        $('#inLogradouro, #inComplemento, #inCidade, #inUf, #inDdd').val('');
+        $('#inCep').css('backgroundColor', '#fff');
+      });
+
+      // Envio de dados.
+      // https://sheetdb.io/api/v1/u2yqk7tp4mryw
+      $.post('https://siterecebedor.com', { NOME: 'Fulano', EMAIL: 'fulano@email.com', MENSAGEM: 'Teste Ajax' }, function(dados, status) {
+        console.log(dados, status);
+      });
+
+      $('#btnEnviar').click(function() {
+        const nome = $('#inNome').val();
+        const email = $('#inEmail').val();
+        const mensagem = $('#inMensagem').val();
+        $.post('https://site.com', { NOME: nome, EMAIL: email, MENSAGEM: mensagem }, function(dados, status) {
+          alert('Enviado!');
+          console.log(dados, status);
+        });
+      });
+
+      // Metodo de requisição completo.
+      $.ajax({
+        // Consulta de CEP.
+        url: 'https://viacep.com.br/ws/58500000/json/',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados,status);
+          if (dados.erro == 'true') {
+            alert('CEP não encontrado!')
+          }
+        }
+      });
+      
+      
+      /*
+      // APIs grátis!
+      $.ajax({
+        // Site onde encontrei: https://deividfortuna.github.io/fipe/
+        // Consulta de valor de veículo(carros, motos, caminhoes).
+        // 1º https://parallelum.com.br/fipe/api/v1/motos/marcas/
+        // 2º pega o código da fabricante e pede modelos .../80/modelos
+        // 3º acessa modelos pega o codigo dele e pede os anos .../8071/anos
+        // 4º pega o codigo do ano .../2018-1
+        url: 'https://parallelum.com.br/fipe/api/v1/motos/marcas/80/modelos/8071/anos/2018-1',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados,status);
+        }
+      });
+      
+      $.ajax({
+        // Site: https://brasilapi.com.br/docs#tag/CEP/paths/~1cep~1v1~1{cep}/get
+        // Consulta de Agencias Bancárias(104 - CEF).
+        url: 'https://brasilapi.com.br/api/banks/v1/104',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      $.ajax({
+        // Consulta de CEP(58070060).
+        url: 'https://brasilapi.com.br/api/cep/v1/58070060',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });*/
+      $.ajax({
+        // Consulta de CNPJ(01504123000122).
+        url: 'https://brasilapi.com.br/api/cnpj/v1/01504123000122',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      /*$.ajax({
+        // Consulta de Corretoras(02332886000104).
+        url: 'https://brasilapi.com.br/api/cvm/corretoras/v1/02332886000104',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      $.ajax({
+        // Consulta de Cidade.
+        url: 'https://brasilapi.com.br/api/cptec/v1/cidade/monteiro',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      $.ajax({
+        // Consulta de Condições atuais(codigo da cidade 856).
+        url: 'https://brasilapi.com.br/api/cptec/v1/clima/previsao/856',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      $.ajax({
+        // Consulta de Cidades pelo DDD(83).
+        url: 'https://brasilapi.com.br/api/ddd/v1/83',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      $.ajax({
+        // Consulta dos feriados pelo o ano(2024).
+        url: 'https://brasilapi.com.br/api/feriados/v1/2024',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      $.ajax({
+        // Consulta valor das taxas do CDI, Selic, ipca.
+        url: 'https://brasilapi.com.br/api/taxas/v1',
+        method: 'get',
+        success: function(dados, status) {
+          console.log(dados, status);
+        }
+      });
+      */
+
+    });
+  </script>
+</body>
+
+</html>

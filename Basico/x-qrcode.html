@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>QRCode</title>
+</head>
+
+<body>
+  <h1>Crie seu QRCode</h1>
+  <textarea rows="10" maxlength="256"></textarea>
+  <br><br>
+  <button onclick="gerarQrcode()">Gerar QRCode</button>
+  <br><br>
+  <img id="imgQrCode">
+
+</body>
+<script>
+  function gerarQrcode() {
+    var area = document.querySelector('textarea');
+
+    // API https://quickchart.io/qr?text=Here's my text
+    var api = 'https://quickchart.io/qr?size=400&format=png&ecLevel=H&text=';
+    var qr = api + encodeURIComponent(area.value);
+    // encodeURIComponent() CONVERTE O TEXTO EM FORMATO DE URL
+
+    // COLOCANDO A IMAGEM NA TAG
+    document.querySelector('#imgQrCode').src = qr;
+
+    // BOTÃO PARA DOWNLOAD 
+    var link = document.createElement('a');
+
+    // TRANFORMAR O LINK EM IMAGEM PARA PERMITIR O DOWNLOAD
+    fetch(qr)
+      .then(resposta => resposta.blob())
+      .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+
+        link.download = 'qrcode.png';
+        link.href = url;
+        link.textContent = 'Baixar Imagem'
+      })
+
+    document.body.appendChild(link);
+    area.value = '';
+  }
+
+  // SITE DA API: https://quickchart.io/documentation/qr-codes/
+</script>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: monospace;
+    }
+    body{
+      height: 100vh;
+    }
+    .app{
+      width: 90%;
+      height: 60%;
+      margin: 30px auto 0 auto;
+      border: 1px solid purple;
+    }
+    .jogo{
+      background: skyblue;
+      width: 100%;
+      height: 80%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    
+    .bola{
+      background: blue;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid black;
+      
+      position: absolute;
+      bottom: 0;
+      right: 70%;
+    }
+    .pular{
+      animation: jump;
+      animation-duration: 1000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+    
+    .obj{
+      background: green;
+      border: 1px solid black;
+      width: 30px;
+      height: 40px;
+      border-radius: 15px 15px 0 0;
+      position: absolute; /* se NÃO colocar o pai como relativo, esse elemento vai ficar na posicao do root. */
+      bottom: 0;
+      /*right: 0;*/
+      animation: movimentoObj;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      /*left: 106px;*/ /* a distancia onde se chocam*/
+    }
+    
+    /* aniimacao */
+    @keyframes movimentoObj{
+      from{
+        right: -30px;
+      }
+      to{
+        right: 100%;
+      }
+    }
+    
+    @keyframes jump{
+      0%{
+        bottom: 0;
+      }
+      40%{
+        bottom: 60px;
+      }
+      50%{
+        bottom: 60px;
+      }
+      60%{
+        bottom: 60px;
+      }
+      100%{
+        bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body id="tela">
+  <main class="app">
+    <section class="jogo">
+      <div class="bola" id="bola"></div>
+      <div class="obj" id="obj"></div>
+    </section>
+    
+    <!--<button id="btPular">Pular</button>-->
+  </main>
+  
+  
+<script>
+  const bola = document.getElementById('bola');
+  const obj = document.getElementById('obj');
+  const tela = document.getElementById('tela');
+  
+  tela.addEventListener('click', pularObstaculo);
+
+
+  function pularObstaculo(){
+    bola.classList.add('pular');
+    
+    setTimeout(() => {
+      bola.classList.remove('pular')
+    }, 1000);
+  }
+  
+  const loop = setInterval(() => {
+    const bolaPos = +window.getComputedStyle(bola).bottom.replace('px', '')
+    let objPos = obj.offsetLeft;
+    
+    if(objPos <= 95 && objPos > 0 && bolaPos < 38){
+      obj.style.animation = 'none';
+      obj.style.left = '95px';
+      
+      bola.style.animation = 'none';
+      bola.style.bottom = `${bolaPos}px`;
+      bola.style.backgroundColor = 'red';
+      
+      clearInterval(loop); // parar de fazer contagem.
+    }
+  }, 100);
+</script>
+
+</body>
+
+</html>

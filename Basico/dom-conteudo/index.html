@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM - Conteúdo</title>
+</head>
+<body>
+  <h1>Manipulação de Conteúdo</h1>
+  <hr>
+  
+  <p id="inTexto">Aqui é um parágrafo.</p>
+  <button onclick="addSpan()">Adicionar Conteúdo</button>
+  <button onclick="addTexto()">Adicionar Novo Texto</button>
+  
+  <br><br>
+  
+  <select name="" id="cores">
+    <option value="#000000" selected="">Escolha uma Cor</option>
+    <option value="#0000aa">Blue</option>
+    <option value="#00aa00">Green</option>
+    <option value="#aa0000">Red</option>
+  </select>
+  <button onclick="mostrarCor()">Mostrar Cor</button>
+  
+  <script>
+  /*
+  Manipulando o conteúdo com as propriedades:
+  
+  innerHTML
+  innerText
+  
+  // de um Dropdown:
+  e.options[.selectedIndex].text ou .value
+  */
+  
+  
+    function addSpan(){
+      const e = document.getElementById('inTexto');
+      e.innerHTML += '<span> Aqui é um span.</span>';
+    }
+    
+    function addTexto(){
+      const e = document.getElementById('inTexto');
+      e.innerText += ' Novo texto.';
+    }
+    
+    function mostrarCor(){
+      const e = document.getElementById("cores");
+      const p = document.getElementById('inTexto');
+      const corSelecionada = e.options[e.selectedIndex].text;
+      const codCor = e.options[e.selectedIndex].value;
+      p.innerText += ' ' + corSelecionada + ' - ' + codCor + '.';
+      p.style.color = codCor;
+    }
+  </script>
+</body>
+</html>

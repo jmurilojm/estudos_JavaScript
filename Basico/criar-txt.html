@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criar arquivo TXT</title>
+</head>
+<body>
+
+<button onclick="criarArquivo()">Criar Arquivo TXT</button>
+
+<script>
+charset="utf-8";
+
+function criarArquivo() {
+    // Conteúdo que você quer escrever no arquivo TXT
+    const conteudo = "Este é o conteúdo do arquivo TXT que estou criando.";
+
+    // Nome do arquivo
+    const nomeArquivo = 'arquivo-teste3.txt';
+
+    // Criar um objeto Blob contendo o conteúdo do arquivo
+    const blob = new Blob([conteudo], { type: 'text/plain' });
+    
+    // Criar um link para o blob
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = nomeArquivo;
+
+    // Adicionar o link ao corpo do documento
+    document.body.appendChild(link);
+
+    // Clicar no link para iniciar o download
+    link.click();
+
+    // Remover o link do corpo do documento
+    document.body.removeChild(link);
+}
+</script>
+
+</body>
+</html>

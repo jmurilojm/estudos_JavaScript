@@ -1,0 +1,67 @@
+body{
+  background-color: darkslategray;
+}
+
+.app{
+  max-width: 350px;
+  min-height: 200px;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #fff;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.app img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.barra progress{
+  width: 50%;
+}
+
+.tempo, .comandos{
+  display: flex;
+  justify-content: space-between;
+}
+
+.comandos{
+  justify-content: space-evenly;
+}
+
+.botao{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 2rem;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: transparent;
+}
+
+#pause{
+  display: none;
+}
+
+.ponto{
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: -10px;
+}
+
+.barra{
+  border: 1px solid #fff;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.botao:hover{
+  background-color: #fff;
+  color: darkslategray;
+}

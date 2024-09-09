@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GPS</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <style>
+  body{
+    margin: 0;
+  }
+  h1{
+    text-align: center;
+  }
+    #divMapa {
+      height: 50vh;
+    }
+    footer {
+      position: absolute;
+      bottom: 50px;
+      width: 100%;
+      text-align: center;
+    }
+
+    footer a {
+      color: gray;
+      text-decoration: none;
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+  <h1>MAPA DE LOCALIZAÇÃO</h1>
+  <hr>
+  
+  <div id="divMapa"></div>
+  
+  <footer>
+    <p><a href="https://www.linkedin.com/in/jmurilo" target="_blank">&copy; Desenvolvido por JMurilo | 2024.</a></p>
+  </footer>
+
+</body>
+<script>
+  // LOCALIZAÇÃO 
+  function pegarLocalizacao() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(mostrarLocalizacao, erroLocalizacao);
+      // watchPosition() ATUALIZA CONSTANTEMENTE 
+      // getCurrentPosition()
+    } else {
+      console.log('Geolocalização não suportada nesse Browser');
+    }
+  }
+
+  function mostrarLocalizacao(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    // Atualiza a posição do mapa
+    mapa.setView([latitude, longitude], 15);
+    marker.setLatLng([latitude, longitude]);
+    
+    // Circulo
+    var circle = L.circle([latitude, longitude], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.1,
+    radius: 250
+}).addTo(mapa);
+  }
+
+  // VERIFICAR SE O GPS ESTA ATIVO E PERMITIDO
+  function erroLocalizacao(error) {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        console.log('Permissão negada pelo usuário.');
+        alert('Ative sua localização!')
+        break;
+      case error.POSITION_UNAVAILABLE:
+        console.log('Posição indisponível.');
+        break;
+      case error.TIMEOUT:
+        console.log('A requisição expirou.');
+        break;
+      case error.UNKNOWN_ERROR:
+        console.log('Ocorreu um erro desconhecido.');
+        break;
+    }
+  }
+
+  
+  // API
+  // Inicializa o mapa com uma posição padrão
+  var mapa = L.map('divMapa').setView([0, 0], 15);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(mapa);
+
+  var marker = L.marker([0, 0]).addTo(mapa);
+
+  // Chama a função para pegar a localização
+  pegarLocalizacao();
+
+  // SITE DA API (GRATUITA): https://leafletjs.com/
+</script>
+
+</html>

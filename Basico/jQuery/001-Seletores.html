@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Seletores</title>
+</head>
+
+<body>
+  <h1>jQuery</h1>
+  <hr>
+  <h3>Seletores</h3>
+  <h4>Como fazer uso dos Seletores</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident nesciunt iste sit reiciendis ad inventore necessitatibus est accusamus ipsa, qui quo ratione numquam excepturi, vitae itaque explicabo animi repellat enim.</p>
+  <p id="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde soluta quam numquam vero, rem iure, ex nostrum quos, ipsam eos quibusdam veniam impedit adipisci debitis eum aliquid earum accusantium necessitatibus.</p>
+  <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere tempore animi eveniet labore at asperiores, optio eius magnam natus nemo vel laudantium quam dolores laborum placeat doloremque magni eos totam!</p>
+
+
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    // Para atividade pós carregamento da pagina.
+    $(document).ready(function() {
+      //alert('Seja bem-vindo!');
+
+      $('h1').css('fontSize', '50px').css('textAlign', 'center');
+      $('h3').css({
+        textAlign: 'center',
+        textDecoration: 'underline'
+      });
+      $('h4').css({
+        color: 'white',
+        backgroundColor: 'dodgerblue',
+        textAlign: 'center'
+      });
+      
+      
+      
+      $('p').css({
+        textIndent: '30px',
+        textAlign: 'justify'
+      });
+      $('#txt').css({
+        backgroundColor: 'gray',
+        color: 'white'
+      });
+      $('.txt').css({
+        backgroundColor: 'black',
+        color: 'white'
+      });
+    })
+  </script>
+</body>
+
+</html>

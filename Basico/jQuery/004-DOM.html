@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DOM</title>
+
+  <style>
+    .btnFundoBlack {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>jQuery</h1>
+  <hr>
+  <h3>DOM - Modelo de Objeto do Documento</h3>
+  <h4>Como fazer uso do DOM</h4>
+
+  <div id="container">
+    <p id="txt1">Texto 1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum totam id quidem beatae odit iste necessitatibus voluptate, maiores dignissimos qui.</p>
+    <p id="txt2">Texto 2 - Blanditiis labore hic sapiente est ex! Numquam porro illo sint accusamus ratione atque, earum quisquam ut, vel optio, dignissimos aliquam, sed fugit!</p>
+  </div>
+
+  <input type="text" name="" id="txt3" placeholder="Texto">
+  <a id="linkA" href="https://google.com.br">Link Google</a>
+  <img id="linkI" src="https://static-00.iconduck.com/assets.00/code-tech-dev-icon-512x448-gc8hejmy.png" alt="">
+
+  <br><br>
+  <button id="btn1">Endereço do Link</button>
+  <button id="btn2">Endereço da Imagem</button>
+  <button id="btn3">Mudar Texto 1</button>
+  <button id="btn4">Mudar Texto 2</button>
+  <button id="btn5">Trocar Link</button>
+  <button id="btn6">Trocar Imagem</button>
+  <button id="btn7">Colocar valor no Input</button>
+  <button id="btn8">Adicionar texto no H4</button>
+  <button id="btn9">Adicionar Div</button>
+  <button id="btn10">Deletar Img. e Parag.</button>
+  <button id="btn11">Add. Classe CSS</button>
+  <button id="btn12">Rem. Classe CSS</button>
+  <button id="btn13">Toggle Classe CSS</button>
+  <button id="btn14">Tam.Imagem</button>
+  <br><br>
+
+
+
+
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('h1').css('fontSize', '50px').css('textAlign', 'center');
+      $('h3').css({
+        textAlign: 'center',
+        textDecoration: 'underline'
+      });
+      $('h4').css({
+        color: 'white',
+        backgroundColor: 'dodgerblue',
+        textAlign: 'center'
+      });
+      $('img').css('width', '100px');
+      $('input, a, img, button').css('display', 'block');
+      $('button').css({
+        width: '160px',
+        display: 'inline-block',
+        margin: '10px'
+      })
+
+
+      // Pegar textos do html.
+      const textoH1 = $('h1').html();
+      //alert(textoH1);
+      const textoh3 = $('h3').text();
+      //alert(textoh3);
+
+      // Pegar em campos de valor.
+      $('#txt3').blur(function() {
+        const textoIn = $(this).val();
+        alert(textoIn)
+      })
+
+      // Pegar valores de atributos.
+      $('#btn1').click(function() {
+        const linkA = $('#linkA').attr('href');
+        alert('Link do Site: ' + linkA);
+      })
+      $('#btn2').click(function() {
+        const linkI = $('#linkI').attr('src');
+        alert('Link da Imagem: ' + linkI);
+      })
+
+      // Crud
+      $('#btn3').click(function() {
+        $('#txt1').text('Mudei o texto 1');
+      });
+      $('#btn4').click(function() {
+        $('#txt2').html('<b>Mudei</b> o texto 2');
+      });
+      $('#btn5').click(function() {
+        $('#linkA').attr('href', 'https://pt.m.wikipedia.org').text('Link Wikipédia');
+      });
+      $('#btn6').click(function() {
+        $('#linkI').attr('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxYJoLnKDLhUK3alGFVB4jDfQjRnbSVKptUw&usqp=CAU');
+      });
+      $('#btn7').click(function() {
+        $('#txt3').val('Jeso Mutane');
+      });
+      $('#btn8').click(function() {
+        $('h4').append(' - jQuery')
+      });
+      $('#btn9').click(function() {
+        $('body').append('<div style="width:45px; height:45px; background: deeppink; display: inline-block; margin: 1%"></div>')
+      });
+      $('#btn10').click(function() {
+        $('img').remove();
+        $('#container').empty(); // Esvazia o item.
+      });
+
+      // Configurar CSS.
+      $('h1').click(function() {
+        $('body').css('backgroundColor', 'lightgray');
+      });
+      $('#btn11').click(function() {
+        $('button').addClass('btnFundoBlack');
+      });
+      $('#btn12').click(function() {
+        $('button').removeClass('btnFundoBlack');
+      });
+      $('#btn13').click(function() {
+        $('button').toggleClass('btnFundoBlack');
+      });
+
+      // Controles de dimensões.
+      $('#btn14').click(function() {
+        const l = $('img').width();
+        const h = $('img').height();
+        alert(`Tamanho: ${l} x ${h} pxls`);
+
+        // Alterar tamanho.
+        $('img').width('100%');
+        //$('img').height(300);
+      });
+
+    });
+  </script>
+</body>
+
+</html>

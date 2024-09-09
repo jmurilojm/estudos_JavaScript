@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CAM</title>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    button {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <video autoplay style="display: none;"></video>
+  <canvas style="display: none;">
+
+  </canvas>
+  <button>Clique aqui</button>
+  <a href=""></a>
+</body>
+<script>
+  var video = document.querySelector('video');
+
+  // Acesso ao webcam do navegador
+  navigator.mediaDevices.getUserMedia({ video: true }) // retorna uma promise
+    .then(frames => {
+      video.srcObject = frames;
+      video.play; // Aqui já funciona
+    }) // Quando der certo
+    .catch(error => {
+      console.log(error)
+    }) // Quando der errado
+
+
+  // FUNÇÃO TIRAR FOTO
+  document.querySelector('button').addEventListener('click', () => {
+    var canvas = document.querySelector('canvas');
+
+    // LARGURA E ALTURA PARA A FOTO. A MESMA DO VIDEO
+    canvas.height = video.videoHeight;
+    canvas.width = video.videoWidth;
+
+    // COLOCAR A IMAGEM 
+    var conteudo = canvas.getContext('2d');
+    conteudo.drawImage(video, 0, 0); // O QUE SERÁ ADICIONADO E A PARTIR DE QUE POSIÇÃO
+
+    // PARA BAIXAR
+    var link = document.createElement('a');
+    link.download = 'arquivo.png';
+    link.href = canvas.toDataURL();
+    //link.textContent = 'Cluque para baixar a imagem';
+    link.textContent = 'Baixar arquivo';
+
+    document.body.appendChild(link);
+  })
+</script>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="Pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MEUS DOCUMENTOS</title>
+</head>
+
+<body>
+  <h1>DOCUMENTAÇÕES</h1>
+  <hr>
+  <pre>
+    <code>
+      <>
+      // TRANFORMA O LINK DE IMAGEM PARA PERMITIR O DOWNLOAD VIA TAG A
+      
+      let link = document.createElement('a');
+      const urlDaImagem = "https://...";
+      
+      fetch(urlDaImagem)
+        .then(resposta => resposta.blob())
+        .then(blob => {
+          const url = window.URL.createObjectURL(blob);
+      
+          link.download = 'arquivo.png';
+          link.href = url;
+          link.textContent = 'Baixar Imagem';
+        });
+      
+      document.body.appendChild(link);
+      <>
+    </code>
+    <hr>
+    <code>
+      <>
+      // OBTER LOCALIZAÇÃO
+      
+      function pegarLocalizacao() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(mostrarLocalizacao, erroLocalizacao);
+          // watchPosition() ATUALIZA CONSTANTEMENTE
+          // getCurrentPosition()
+        } else {
+          console.log('Geolocalização não suportada nesse Browser');
+        }
+      }
+      
+      function mostrarLocalizacao(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        
+        console.log(latitude, longitude)
+      }
+      
+      // VERIFICAR SE O GPS ESTA ATIVO E PERMITIDO
+      
+      function erroLocalizacao(error) {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            console.log('Permissão negada pelo usuário.');
+            alert('Ative sua localização!')
+            break;
+          case error.POSITION_UNAVAILABLE:
+            console.log('Posição indisponível.');
+            break;
+          case error.TIMEOUT:
+            console.log('A requisição expirou.');
+            break;
+          case error.UNKNOWN_ERROR:
+            console.log('Ocorreu um erro desconhecido.');
+            break;
+        }
+      }
+      <>
+    </code>
+    <hr>
+    <code>
+      <>
+        // ACESSO A CÂMERA. EXIBIÇÃO E CAPTURA
+        
+        var video = document.querySelector('video');
+      
+        // Acesso ao webcam do navegador
+        navigator.mediaDevices.getUserMedia({ video: true }) // retorna uma promise
+          .then(frames => {
+            video.srcObject = frames;
+            video.play; // Aqui já funciona
+          }) // Quando der certo
+          .catch(error => {
+            console.log(error)
+          }) // Quando der errado
+      
+      
+        // FUNÇÃO TIRAR FOTO
+        document.querySelector('button').addEventListener('click', () => {
+          var canvas = document.querySelector('canvas');
+      
+          // LARGURA E ALTURA PARA A FOTO. A MESMA DO VIDEO
+          canvas.height = video.videoHeight;
+          canvas.width = video.videoWidth;
+      
+          // COLOCAR A IMAGEM 
+          var conteudo = canvas.getContext('2d');
+          conteudo.drawImage(video, 0, 0); // O QUE SERÁ ADICIONADO E A PARTIR DE QUE POSIÇÃO
+      
+          // PARA BAIXAR
+          var link = document.createElement('a');
+          link.download = 'arquivo.png';
+          link.href = canvas.toDataURL();
+          link.textContent = 'Baixar arquivo';
+      
+          document.body.appendChild(link);
+        })
+      <>
+    </code>
+    <hr>
+    <code>
+      <>
+        // Uso do async await sem retorno 
+  
+        async function getUser2(userId) {
+          let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${userId}`);
+          let userData = await response.json();
+          console.log(userData);
+        }
+  
+        getUser2(6);
+      <>
+    </code>
+    <hr>
+    <code>
+      <>
+      // Uso de fetch
+      
+      function getUser(userId) {
+        const userData = fetch(`https://pokeapi.co/api/v2/pokemon/${userId}`)
+        .then(response => response.json())
+        .then(data => console.log(data.name))
+      }
+      
+      getUser(1);
+      <>
+    </code>
+    <hr>
+    <code>
+      <>
+      // async e await com retorno
+      
+      async function cep5() {
+        const resposta = await fetch('https://viacep.com.br/ws/58070060/json/');
+        const json = await resposta.json()
+      
+        return json
+      }
+      
+      const dados = cep5()
+      dados.then(resposta => {
+        console.log(resposta)
+      })
+      <>
+    </code>
+  </pre>
+
+</body>
+
+</html>

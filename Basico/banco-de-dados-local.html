@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LocalStorage</title>
+</head>
+
+<body>
+  <h1>Armazenamento Local</h1>
+  <hr>
+  <input type="text" id="inTexto">
+  <button id="btnSalvar" onclick="salvar()">Salvar</button>
+  <button id="btnMostrar" onclick="mostrar()">Mostrar</button>
+  <button id="btnApagar" onclick="apagar()">Apagar</button>
+
+
+<script>
+  const texto = document.getElementById('inTexto');
+
+  function salvar(){
+    localStorage.setItem('conteudo',texto.value);
+    texto.value = '';
+  }
+  function mostrar(){
+    texto.value = localStorage.getItem('conteudo')
+    console.log(localStorage.getItem('conteudo'))
+  }
+  function apagar(){
+    localStorage.removeItem('conteudo')
+  }
+</script>
+</body>
+
+</html>

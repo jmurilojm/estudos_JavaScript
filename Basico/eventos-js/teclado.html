@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Eventos - Teclado</title>
+</head>
+<body>
+  <h1>Eventos Keypress</h1>
+  <hr>
+  
+  <button id="btPress" onclick="mostrarPressiaonado()">Ao Pressionar</button>
+  <button id="btDown" onclick="mostrarBaixado()">Ao Baixar</button>
+  <button id="btUp" onclick="mostrarSoltado()">Ao Soltar</button>
+  <input type="text" name="" id="btEspecifico" placeholder="Press tecla para emitir evento">
+  
+  <p id="outRetorno"></p>
+  
+  
+  <script>
+    /*
+    keypress(descontinuado) - onkeydown
+    */
+    
+    const retorno = document.getElementById('outRetorno');
+    
+    
+    function mostrarPressiaonado(){
+      console.log(document.getElementById('btPress').innerText);
+    }
+    
+    function mostrarBaixado(){
+      console.log(document.getElementById('btDown').innerText);
+    }
+    
+    function mostrarSoltado(){
+      console.log(document.getElementById('btUp').innerText);
+    }
+    
+    
+    
+    // keycode tecla específica 
+    document.addEventListener('keydown', (e) => {
+      console.log(e.target.value)
+      document.body.style.backgroundColor = '#6666aa';
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Eventos</title>
+
+  <style>
+    .menu {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>jQuery</h1>
+  <hr>
+  <h3>Eventos</h3>
+  <h4>Como fazer uso dos Eventos</h4>
+  <h2>=</h2>
+  <div class="menu">
+    <p>Clique - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident nesciunt iste sit reiciendis ad inventore necessitatibus est accusamus ipsa, qui quo ratione numquam excepturi, vitae itaque explicabo animi repellat enim.</p>
+    <p id="txt">Clique - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde soluta quam numquam vero, rem iure, ex nostrum quos, ipsam eos quibusdam veniam impedit adipisci debitis eum aliquid earum accusantium necessitatibus.</p>
+    <p class="txt">Clique - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere tempore animi eveniet labore at asperiores, optio eius magnam natus nemo vel laudantium quam dolores laborum placeat doloremque magni eos totam!</p>
+    <button>Limpar Formatação</button>
+  </div>
+
+
+
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    // Para atividade pós carregamento da pagina.
+    $(document).ready(function() {
+      //alert('Seja bem-vindo!');
+
+      $('h2').click(function() {
+        $('div').toggle(2000);
+      })
+      $('h1').css('fontSize', '50px').css('textAlign', 'center');
+      $('h3').css({
+        textAlign: 'center',
+        textDecoration: 'underline'
+      });
+      $('h4, h2').css({
+        color: 'white',
+        backgroundColor: 'dodgerblue',
+        textAlign: 'center'
+      });
+      
+      
+      
+      $('p').css({
+        textIndent: '30px',
+        textAlign: 'justify',
+      }).click(function() {
+        $(this).css({
+          fontFamily: 'cursive'
+        });
+      });
+      $('#txt').click(function() {
+        $(this).css({
+          backgroundColor: 'gray',
+          color: 'white'
+        })
+      })
+      $('.txt').click(function() {
+        $(this).css({
+          backgroundColor: 'black',
+          color: 'white'
+        })
+      })
+      $('button').click(function() {
+        $('p').css({
+          backgroundColor: 'white',
+          color: 'black',
+          fontFamily: 'none'
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

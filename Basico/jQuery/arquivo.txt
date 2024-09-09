@@ -1,0 +1,2 @@
+<h3>Arquivo de Texto</h3>
+<p>Este aquivo esta criado na mesma pasta do arquivo principal para realizar o teste Ajax.<p>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Método Filtro</title>
+</head>
+
+<body>
+  <h1>jQuery</h1>
+  <hr>
+  <h3>Filtros</h3>
+  <h4>Como fazer uso do Método Filter</h4>
+  
+  <input type="text" id="inPesquisa" placeholder="Pesquisar">
+  <br><br>
+  <ul id="inLista">
+    <li>Arroz</li>
+    <li>Feijão</li>
+    <li>Macarrão</li>
+    <li>Cuscuz</li>
+    <li>Café</li>
+    <li>Sal</li>
+    <li>Farinha</li>
+    <li>Massa de Tapioca</li>
+  </ul>
+
+  
+
+
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('h1').css('fontSize', '50px').css('textAlign', 'center');
+      $('h3').css({
+        textAlign: 'center',
+        textDecoration: 'underline'
+      });
+      $('h4').css({
+        color: 'white',
+        backgroundColor: 'dodgerblue',
+        textAlign: 'center'
+      });
+      
+      
+      // Filtrar lista.
+      $('#inPesquisa').keyup(function(){
+        const digito = $(this).val().toLowerCase();
+        //alert(digito);
+        
+        $('#inLista li').filter(function(){
+          $(this).toggle($(this).text().toLocaleLowerCase().indexOf(digito) > -1);
+        });
+      });
+
+    });
+  </script>
+</body>
+
+</html>

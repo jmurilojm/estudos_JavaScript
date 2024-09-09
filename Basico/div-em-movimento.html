@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: gray;
+    }
+
+    .app {
+      background: white;
+      width: 90%;
+      height: 60%;
+      margin: 40px auto 0;
+    }
+
+    .movimento {
+      background: red;
+      width: 40px;
+      height: 80px;
+
+      animation: go-back 1s;
+      /*chamando a acao criada + 1s de tempo para se movimentar do ponto inicial ao ponto final.*/
+      animation-iteration-count: infinite;
+      /* repetir infinitas vezes.*/
+      animation-direction: alternate-reverse;
+      /*ir e voltar do ponto final para o começo e vice-versa.*/
+    }
+
+
+    @keyframes go-back {
+      0% {
+        transform: translateX(100px);
+      }
+
+      /* estando em 0 vá, para posição 100*/
+      100% {
+        transform: translateX(0);
+      }
+
+      /* estando em 100, vá para a posição o*/
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0px);
+      }/* medida inicial do elemento*/
+
+      to {
+        transform: translateY(-30px);
+      } /* inicia nessa medida, retornando para 0*/
+    }
+  </style>
+</head>
+
+<body>
+  <main class="app">
+    <div class="movimento"></div>
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+LISTA DE APIS
+
+
+CEP
+https://viacep.com.br/ws/58550000/json/
+
+BIBLIA
+https://www.abibliadigital.com.br/api/verses/nvi/sl/1
+https://bible-api.com/john 3:16?translation=almeida
+
+CNPJ
+
+COVID
+https://covid19-brazil-api.now.sh/api/report/v1/brazil
+
+QRCODE
+https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ddfgvsdcxz
+https://quickchart.io/qr?size=400&format=png&ecLevel=H&text=gvgyg
+site: https://quickchart.io/documentation/qr-codes/
+
+POKEMON
+https://pokeapi.co/api/v2/pokemon/1
+

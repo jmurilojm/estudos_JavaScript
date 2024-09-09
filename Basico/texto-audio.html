@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Texto em Áudio</title>
+</head>
+
+<body>
+  <h1>Texto em Áudio</h1>
+  <hr>
+  
+  <textarea name="" id="inTexto" cols="30" rows="10" placeholder="Escreva algo..."></textarea>
+  <button onclick="falar()">Clique para ouvir o texto</button>
+
+  <script>
+    const inTexto = document.getElementById('inTexto')
+
+    function falar() {
+      var texto = inTexto.value
+      const audio = new SpeechSynthesisUtterance(texto);
+      window.speechSynthesis.speak(audio)
+    }
+  </script>
+</body>
+
+</html>

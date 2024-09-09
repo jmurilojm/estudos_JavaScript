@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rascunho</title>
+
+  <style>
+     #btnMenu, #painel{
+       background-color: darkblue;
+       color: white;
+       text-align: center;
+     }
+     #painel{
+       height: 100px;
+       display: none;
+     }
+     #qAnimado{
+       width: 100px;
+       height: 100px;
+       background-color: dodgerblue;
+       position: absolute;
+     }
+  </style>
+</head>
+
+<body>
+  <h1>jQuery(clique aqui)</h1>
+  <hr>
+  <h4 id="txtH4">Testando essa Biblioteca</h4>
+  <button id="btnMostrar">Mostrar Texto</button>
+  <hr>
+  <p>Número 1: <input type="number" name="" id="inN1"></p>
+  <p>Número 2: <input type="number" name="" id="inN2"></p>
+  <button id="btnSomar">Somar Numeros</button>
+  <p>Soma = <span id="outSoma">...</span></p>
+  <hr>
+  <div id="containerQ">
+    <div id="qVermelho"></div>
+    <div id="qAzul"></div>
+    <div id="qVerde"></div>
+    <div id="qPink"></div>
+    <div id="qPurple"></div>
+  </div>
+  <div id="containerB">
+    <button id="btnH">Hide</button>
+    <button id="btnS">Show</button>
+    <button id="btnT">Toggle</button>
+    <button id="btnFO">FadeOut</button>
+    <button id="btnFI">FadeIn</button>
+  </div>
+  <hr>
+  <div id="btnMenu">Menu</div>
+  <div id="painel">Painel</div>
+  <hr>
+  <div id="qAnimado"></div>
+
+
+
+
+
+
+
+
+  <script src="jquery-3.7.1.js" type="text/javascript"></script>
+  <script>
+    // Para funcionar após a página carregada.
+    $(document).ready(function() {
+      // Atribuindo Click e a Color blue.
+      $('h1').click(function() {
+        alert('ok');
+        // Mudança para a Cor red após o Click.
+        $('h4').css('color', 'red');
+      }).css('color', 'blue');
+
+      // Captura do Texto contido na Tag.
+      $('#btnMostrar').click(function() {
+        alert($('#txtH4').text());
+      })
+
+      // Captura de dados para Soma
+      $('#btnSomar').click(function() {
+        const n1 = Number($('#inN1').val());
+        const n2 = Number($('#inN2').val());
+
+        $('#outSoma').html(n1 + n2);
+      })
+
+      // Estilos nos Quadrados e do Botão.
+      $('#containerQ, #containerB').css({
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '10px',
+      });
+      $('#btnS, #btnH, #btnT, #btnFO, #btnFI').css({
+        marginTop: '10px'
+      })
+
+      $('#qVermelho, #qAzul, #qVerde, #qPink, #qPurple').css({
+        width: '60',
+        height: '60'
+      });
+
+      $('#qVermelho').css('background-color', 'red');
+      $('#qVermelho').css('width', '60');
+      $('#qVermelho').css('height', '60');
+
+      $('#qAzul').css({
+        backgroundColor: 'blue',
+        width: '60',
+        height: '60'
+      });
+
+      $('#qVerde').css({
+        backgroundColor: 'green'
+      });
+      $('#qPink').css({
+        backgroundColor: 'pink'
+      });
+      $('#qPurple').css({
+        backgroundColor: 'purple'
+      });
+
+      // Eventos.
+      $('#btnH').click(function() {
+        $('#qAzul').hide(2000, function() {
+          $('#qVermelho, #qVerde').css('backgroundColor', 'black');
+        });
+      })
+      $('#btnS').click(function() {
+        $('#qAzul').show(2000);
+      })
+      $('#btnT').click(function() {
+        $('#qVerde').toggle(2000);
+        $('#qPink').fadeToggle(2000);
+      })
+      
+      $('#btnFO').click(function(){
+        $('#qPink').fadeOut(2000);
+      })
+      $('#btnFI').click(function(){
+        $('#qPink').fadeIn(2000);
+      })
+      
+      // Opção para menu.
+      $('#btnMenu').click(function(){
+        $('#painel').slideToggle('slow');
+        // slideDown slideUp
+        // slow fast
+      })
+      
+      // Animação.
+      $('#qAnimado').click(function(){
+        // Deslocamento
+        $('#qAnimado').animate({
+          right: '10'
+        },2000)
+      })
+    })
+  </script>
+</body>
+
+</html>

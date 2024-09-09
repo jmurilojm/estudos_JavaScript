@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo 001</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <style>
+    .esconde {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Exemplo</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati inventore alias, sunt adipisci ipsa quibusdam? Suscipit ad dolore vero voluptas earum! Ex quibusdam voluptatem voluptas placeat dolore, vel fuga, quas.</p>
+  <p><span>Lorem</span> ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt quasi rem ratione soluta, illum nisi fugit similique et tempore culpa deserunt quam pariatur est labore fuga, nihil possimus, voluptates.</p>
+  <button id="btnEsconder">Esconder</button>
+
+  <script>
+    $('body').css({
+      'backgroundColor': 'black',
+      'color': 'white'
+    });
+
+    $('h1').fadeOut('2000').fadeIn('2000');
+    $('h1').css({
+      'color': 'lightblue',
+      'textTransform': 'uppercase'
+    });
+    $('h1').append(' - JQuery')
+
+    $('#btnEsconder').css({
+      'backgroundColor': 'lightblue',
+      'fontWeight': 'bold',
+      'border': 'none',
+      'padding': '5px 0',
+      'width': '100%'
+    })
+    $('#btnEsconder').on('click', esconder);
+    
+    $('span').css({
+      'fontSize': '36px',
+      'fontWeight': 'bold'
+    })
+
+    function esconder() {
+      $('p').toggle('esconde');
+    }
+  </script>
+</body>
+
+</html>

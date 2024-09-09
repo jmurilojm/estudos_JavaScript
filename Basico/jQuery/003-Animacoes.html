@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Animações</title>
+</head>
+
+<body>
+  <h1>jQuery</h1>
+  <hr>
+  <h3>Animações</h3>
+  <h4>Como fazer uso das Animações</h4>
+
+  <div id="q1"></div>
+  <div id="q2"></div>
+
+
+  <script src="jquery-3.7.1.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('h1').css('fontSize', '50px').css('textAlign', 'center');
+      $('h3').css({
+        textAlign: 'center',
+        textDecoration: 'underline'
+      });
+      $('h4').css({
+        color: 'white',
+        backgroundColor: 'dodgerblue',
+        textAlign: 'center'
+      });
+
+
+      $('div#q1').css({
+        backgroundColor: 'deeppink',
+        width: '100px',
+        height: '100px',
+        borderRadius: '10px',
+        position: 'absolute'
+      });
+      $('div#q2').css({
+        backgroundColor: 'green',
+        width: '200px',
+        height: '200px',
+        borderRadius: '10px'
+      });
+      $('#q1').click(function() {
+        $(this).animate({
+          // Ficará 8px na margem direita.
+          right: '8px',
+          width: '200px'
+        }, 2000);
+      });
+      $('#q2').click(function(){
+        $(this).slideUp(2000)
+      })
+      
+
+    });
+  </script>
+</body>
+
+</html>

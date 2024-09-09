@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classes</title>
+</head>
+
+<body>
+
+<script>
+  class Pessoa{
+    constructor(nomeDaPessoa){
+      this.nome = nomeDaPessoa;
+    }
+  }
+  const p = new Pessoa('Fulano')
+  console.log(p)
+  console.log(p.nome)
+  
+  
+  // get e set para validações e alterações
+  class Carro{
+    constructor(nomeDoCarro){
+      this._nome = nomeDoCarro;
+    }
+    
+    get nome(){
+      return this._nome
+    }
+    
+    set nome(novoNome){
+      if(novoNome === this._nome){
+        alert('O nome é o mesmo!')
+      } else{
+        this._nome = novoNome
+      }
+    }
+  }
+  const c = new Carro('Monza')
+  console.log(c)
+  console.log(c.nome)
+  c.nome = 'Monza'
+  console.log(c.nome)
+  
+</script>
+</body>
+
+</html>
