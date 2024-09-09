@@ -1,1 +1,0 @@
-document.write('Olá, Mundo! - JS de um arquivo Externo');
