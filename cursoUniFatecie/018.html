@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Usando While</h1>
+  <hr>
+  
+  <p>Digite um valor:</p>
+  <input type="number" name="numero" id="numero">
+  
+  <button onclick="funcao()" type="button">Gerar</button>
+  
+  <p id="resultado"></p>
+
+
+
+
+
+
+
+
+
+<script>
+  function funcao(){
+    let numero = document.getElementById('numero').value;
+    let mensagem = '';
+    
+    while(numero >= 0){
+      mensagem += numero + '<br>';
+      numero--;
+    }
+    
+    document.getElementById('resultado').innerHTML = mensagem;
+  }
+</script>
+</body>
+
+</html>

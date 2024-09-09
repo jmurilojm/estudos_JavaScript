@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Trabalhando com Strings</h1>
+  <hr>
+  
+  <p>Nome completo:</p>
+  <input type="text" name="" id="nome" value="xxxxx">
+  <p>Data de nascimento (dd/mm/aaaa):</p>
+  <input type="text" name="" id="data" value="00/00/0000">
+  <p>Cidade onde nasceu:</p>
+  <input type="text" name="" id="cidade" value="xxxxx">
+  
+  <br><br>
+  
+  <button onclick="funcao()" type="button">Gerar dados</button>
+  
+  <p id="e1"></p>
+  <p id="e2"></p>
+  <p id="e3"></p>
+  <p id="e4"></p>
+  
+  
+  
+  
+  
+  <script>
+    function funcao(){
+      nome = document.getElementById('nome').value;
+      document.getElementById('e1').innerHTML = 'Total de caracteres: ' + nome.length;
+      
+      data = document.getElementById('data').value;
+      document.getElementById('e2').innerHTML = 'Ano de nascimento: ' + data.substr(6,4); // ou -4
+      
+      cidade = document.getElementById('cidade').value;
+      document.getElementById('e3').innerHTML = 'Nova cidade: ' + cidade.replace(cidade, 'NY');
+      
+      document.getElementById('e4').innerHTML = 'Nome ajustado: ' + nome.toUpperCase(nome);
+    }
+  </script>
+
+</body>
+
+</html>

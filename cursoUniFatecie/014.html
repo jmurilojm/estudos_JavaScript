@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu</title>
+</head>
+
+<body>
+  <h1>Menu de Opções</h1>
+  <hr>
+  
+  <p>1. Inserir dados</p>
+  <p>2. Consultar dados</p>
+  <p>3. Editar dados</p>
+  <p>4. Excluir dados</p>
+  
+  <input type="number" name="" id="opcao">
+  <button onclick="funcao()" type="button">Avançar</button>
+  
+  <p id="escolhido"></p>
+
+
+
+
+
+
+<script>
+  function funcao(){
+    let opcao = document.getElementById('opcao');
+    let mensagem;
+    
+    switch(opcao.value){
+      case '1':
+        mensagem = 'Escolheu a opção 1';
+        opcao.value = '';
+        opcao.focus();
+        break
+      case '2':
+        mensagem = 'Escolheu a 2';
+        opcao.value = '';
+        opcao.focus();
+        break
+      case '3':
+        mensagem = 'Escolhida foi a 3';
+        opcao.value = '';
+        opcao.focus();
+        break
+      case '4':
+        mensagem = 'Foi a 4';
+        opcao.value = '';
+        opcao.focus();
+        break
+      default:
+        mensagem = 'Escolha uma das opcoes acima!';
+        opcao.value = '';
+        opcao.focus();
+    }
+    
+    document.getElementById('escolhido').innerHTML = mensagem;
+  }
+</script>
+</body>
+
+</html>

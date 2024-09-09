@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista</title>
+</head>
+
+<body>
+  <h1>Adicionando em Lista</h1>
+  <hr>
+  
+  <p>Escreva:</p>
+  <input type="text" name="" id="item">
+  <br><br>
+  
+  <button onclick="add()" type="button">Adicionar</button>
+  
+  <p id="itens"></p>
+
+
+
+
+
+
+<script>
+  let lista = [];
+  
+  function add(){
+    let item = document.getElementById('item');
+    let itens = document.getElementById('itens');
+    
+    
+    lista.push(item.value.trim().toUpperCase());
+    itens.innerHTML = lista;
+    
+    
+    //
+    item.value = '';
+    item.focus();
+  }
+</script>
+</body>
+
+</html>

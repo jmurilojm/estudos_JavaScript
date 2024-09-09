@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>006</title>
+</head>
+
+<body>
+
+  <h2>JavaScript - Exemplo 006</h2>
+  <p>Operadores Aritméticos</p>
+  <hr>
+  
+  1. Soma padrão:
+  <p id="ex006_1"></p>
+  
+  2. Concatenação de textos:
+  <p id="ex006_2"></p>
+  
+  3. Outra sintaxe:
+  <p id="ex006_3"></p>
+
+  <script>
+    let a, b, c;
+    a = 5;
+    b = 6;
+    c = a + b;
+    document.getElementById('ex006_1').innerHTML = '5 + 6 = ' + c;
+    
+    document.getElementById('ex006_2').innerHTML = 'HTML' + ' + ' + 'JavaScript';
+    
+    var d = 7;
+    var e = 9;
+    var f = d + e;
+    document.getElementById('ex006_3').innerHTML = '7 + 9 = ' + f;
+  </script>
+</body>
+
+</html>
