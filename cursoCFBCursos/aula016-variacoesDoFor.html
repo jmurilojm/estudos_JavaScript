@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variações do FOR</title>
+</head>
+
+<body>
+  <h1>FOR IN e FOR OF</h1>
+  <hr>
+  
+  <div>
+    Curso
+  </div>
+  <div>
+    Javascript 
+  </div>
+  <div>
+    cfb cursos
+  </div>
+
+  <hr>
+  
+  <pre>
+    let a = [20, 11, 55, 32, 10]
+  
+  for(let i = 0; i < a.length; i++){
+    console.log('Posicao: ' + i + ' -> ' + a[i])
+  }
+  
+  
+  // retorna a posição 
+  for(i in a){
+    console.log(i)// imprime a posição
+  }
+  for(i in a){
+    console.log(a[i])// imprime o elemento
+  }
+  
+  
+  // retorna os elementos
+  for(x of a){
+    console.log(x)// imprime o elemento
+  }
+  
+  
+  let obj = document.getElementsByTagName('div');
+  
+  for(item of obj){
+    console.log(item)
+  }
+  for(i of obj){
+    i.innerHTML = 'Mudei'
+  }
+  </pre>
+
+
+<script>
+  let a = [20, 11, 55, 32, 10]
+  
+  for(let i = 0; i < a.length; i++){
+    console.log('Posicao: ' + i + ' -> ' + a[i])
+  }
+  
+  
+  // retorna a posição 
+  for(i in a){
+    console.log(i)// imprime a posição
+  }
+  for(i in a){
+    console.log(a[i])// imprime o elemento
+  }
+  
+  
+  // retorna os elementos
+  for(x of a){
+    console.log(x)// imprime o elemento
+  }
+  
+  
+  let obj = document.getElementsByTagName('div');
+  
+  for(item of obj){
+    console.log(item)
+  }
+  for(i of obj){
+    i.innerHTML = 'Mudei'
+  }
+</script>
+</body>
+
+</html>
