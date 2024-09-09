@@ -1,0 +1,51 @@
+header{
+  text-align: center;
+}
+nav{
+  background-color: black;
+  display: flex;
+  justify-content: space-evenly;
+}
+nav a{
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  margin: 0 5px;
+  font-weight: bold;
+}
+nav a:hover{
+  color: black;
+  background-color: white;
+  transition: .4s;
+}
+section{
+  text-indent: 20px;
+}
+aside iframe{
+  width: 100%;
+  height: 420px;
+}
+footer{
+  text-align: center;
+  background-color: black;
+}
+footer p, footer a{
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 400px) {
+  main{
+    display: flex;
+  }
+  section{
+    width: 100%;
+  }
+  aside{
+    width: 65%;
+  }
+  aside iframe{
+    height: 100%;
+  }
+}

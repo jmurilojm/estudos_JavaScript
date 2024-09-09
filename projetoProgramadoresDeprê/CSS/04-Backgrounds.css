@@ -1,0 +1,16 @@
+.caixa{
+  background-color: lightgray;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;/*Justifica na horizontal*/
+  align-items: center;/*Alinha na vertical*/
+}
+.conteudo{
+  background-color: white;
+  width: 250px;
+  height: 500px;
+  background-image: url("../HTML/imagens/piano.png");
+  background-repeat: no-repeat;/*Tira a repetição da imagem. Existe também as propriedades: repeat-x e repeat-y*/
+  background-position: right top;/*Essa propiedade permite mover a imagem em 09 posições: center, top, right, left, bottom. e as de cantos usando right ou left + top ou bottom. Outra forma é utilizar por porcentagem, por exemplo para o centro: 50% 50%, ou seja, eixo x y*/
+}

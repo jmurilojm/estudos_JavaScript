@@ -1,0 +1,27 @@
+*{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}/*Seletor Universal*/
+
+article{
+  background-color: darkgreen;
+  color: white;
+}/*Seletor de Tipo de Elemento*/
+
+#exSelDeId{
+  background-color: darkblue;
+  color: white;
+}/*Seletor de ID*/
+
+.exSelDeClasse{
+  background-color: darkred;
+  color: white;
+}/*Seletor de Classe*/
+
+.descendente strong{
+  color: red;
+}/*Seletor de Descendente*/
+
+.seletorFilho strong > em{
+  background-color: lightgreen;
+}
