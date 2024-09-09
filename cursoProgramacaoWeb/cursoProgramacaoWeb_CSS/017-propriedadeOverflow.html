@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overflow</title>
+  
+  <style>
+    .box1{
+      background-color: dodgerblue;
+      height: 150px;
+      overflow: auto;
+    }
+    
+    .box2 {
+      background-color: gold;
+      height: 150px;
+      overflow: scroll;
+    }
+    
+    .box3 {
+      background-color: orangered;
+      height: 150px;
+      overflow: hidden;
+    }
+    
+    /*
+    Tirar barra de rolagem padrao do navegador:
+    
+    overflow-x: hidden;
+    overflow-y: hidden;
+    */
+  </style>
+</head>
+
+<body>
+  <h1>Propriedade Overflow</h1>
+  <hr>
+  
+  <div class="box1">
+    <p>Overflow AUTO</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  </div>
+  
+  <div class="box2">
+    <p>Overflow SCROLL</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  </div>
+  
+  <div class="box3">
+    <p>Overflow HIDDEN</p>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  </div>
+
+</body>
+
+</html>

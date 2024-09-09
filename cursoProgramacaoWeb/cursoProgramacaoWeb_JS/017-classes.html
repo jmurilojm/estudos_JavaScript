@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classes</title>
+</head>
+
+<body>
+  <h1>Classes JS</h1>
+  <hr>
+  
+  <p id="campo1"></p>
+  <p id="campo2"></p>
+  <p id="campo3"></p>
+  <p id="campo4"></p>
+  
+
+
+
+
+
+<script>
+  //forma literal
+  const carro = {
+    nome: 'Gol',
+    marca: 'Valksvagen',
+    ano: 2000
+  }
+  document.getElementById('campo1').innerHTML = carro;
+  console.log(carro);
+  
+  
+  //uma classe com construtor
+  class Carro {
+    constructor(valor1, valor2, valor3){
+      this.nome = valor1;
+      this.marca = valor2;
+      this.ano = valor3;
+    }
+    
+    //metodos
+    buzinar(){
+      return this.marca + ' buzinou: pibiiit!!!';
+    }
+  }
+  document.getElementById('campo2').innerHTML = Carro;
+  console.log(Carro);
+  
+  //criando um objeto a partir da classe Carro
+  const uno = new Carro('Uno', 'Fiat', 99);
+  const etios = new Carro('Etios','Toyota', 2022);
+  
+  document.getElementById('campo3').innerHTML = uno;
+  console.log(uno);
+  document.getElementById('campo4').innerHTML = etios;
+  console.log(etios);
+  console.log(etios.buzinar())
+  
+  //alterar dados do objeto Carro
+  uno.ano = 2000;
+  console.log(uno)
+  
+</script>
+</body>
+
+</html>

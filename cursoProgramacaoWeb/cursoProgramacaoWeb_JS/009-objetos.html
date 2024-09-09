@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Objetos</title>
+</head>
+
+<body>
+  <h1>Objetos no JS</h1>
+  <hr>
+  
+  
+
+
+
+<script>
+  //sintaxe: let nomeDoObjeto = {chave: valor};
+  
+  const pessoa = {
+    nome: 'Fulano', 
+    sobrenome: 'de Tal', 
+    idade: 99, 
+    
+    buzinar: function(){
+      console.log('Pibit!!!');
+    },
+    infor: function(){
+      console.log('Nome completo: ' + this.nome + ' ' + this.sobrenome + '. Idade : ' + this.idade);
+    }
+  };//objeto literal. Totalmente preenchido.
+  
+  console.log(pessoa)
+  console.log(pessoa.nome)
+  pessoa.buzinar()
+  pessoa.infor()
+</script>
+</body>
+
+</html>
