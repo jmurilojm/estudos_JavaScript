@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="José Murilo">
+  <meta name="description" content="Atividade Prática 03 - Curso DS 2024.1 - Disciplina: PNTWeb Avançado. Prof. Fagner Pontes.">
+  <title>PNTWeb Avançado</title>
+</head>
+
+<body>
+  <small>Monteiro/PB, 18 de Abril de 2024.</small><br>
+  <small>Disciplina: PNTWeb Avançado</small>
+  <small>- Professor: Fagner Pontes.</small><br>
+  <small>Discente: José Murilo.</small><br>
+  <small>Polo: ETE Arlindo Ferreira dos Santos - Sertânia/PE.</small>
+  <hr>
+  <h1>Atividade Prática 03</h1>
+  <p>Refazendo a atividade anterior, utilizando o conceito do Paradigma de Programação Orientada à Objeto.</p>
+  <hr>
+  <h2>Sobre os Personagens:</h2>
+
+
+  <h3>Personagem 1:</h3>
+  <p>Tipo: <span id="outTipoP1"></span></p>
+  <p>Nome: <span id="outNomeP1"></span></p>
+  <p>Força: <span id="outForcaP1"></span></p>
+
+  <h3>Personagem 2:</h3>
+  <p>Tipo: <span id="outTipoP2"></span></p>
+  <p>Nome: <span id="outNomeP2"></span></p>
+  <p>Força: <span id="outForcaP2"></span></p>
+
+  <button onclick="mostrarPersonagens()">Mostrar Personagens</button>
+
+
+  <script>
+    // Criando um modelo para criar os Personagens;
+    class Personagem {
+      constructor(tipo, nome, forca) {
+        this.tipo = tipo;
+        this.nome = nome;
+        this.forca = forca;
+      }
+    }
+
+
+    // Função para jogar os dados. O valor da soma será a força do Personagem;
+    function jogarDados() {
+      let somaDasjogadas = 0;
+      const dados = 3;
+
+      for (let giros = 0; giros < dados; giros++) {
+        somaDasjogadas += Math.floor(Math.random() * 6 + 1);
+      }
+
+      return somaDasjogadas;
+    }
+
+
+    // Criar os personagens
+    // Obs: no lugar de digitar o valor da força, ela será gerada através de uma função que vai jogar os 03 dados;
+    const personagem1 = new Personagem("Jedi", "Mestre Yoda", jogarDados());
+    const personagem2 = new Personagem("Sith", "Kilo Ren", jogarDados());
+
+
+    // Enviar informações para a tela;
+    function mostrarPersonagens() {
+      // Referências aos elementos do documento;
+      const outTipoP1 = document.getElementById('outTipoP1');
+      const outNomeP1 = document.getElementById('outNomeP1');
+      const outForcaP1 = document.getElementById('outForcaP1');
+
+      const outTipoP2 = document.getElementById('outTipoP2');
+      const outNomeP2 = document.getElementById('outNomeP2');
+      const outForcaP2 = document.getElementById('outForcaP2');
+
+
+      // Atribuição aos elementos referenciados;
+      outTipoP1.innerText = personagem1.tipo;
+      outNomeP1.innerText = personagem1.nome;
+      outForcaP1.innerText = personagem1.forca;
+
+      outTipoP2.innerText = personagem2.tipo;
+      outNomeP2.innerText = personagem2.nome;
+      outForcaP2.innerText = personagem2.forca;
+    }
+  </script>
+</body>
+
+</html>

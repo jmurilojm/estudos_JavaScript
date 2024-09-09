@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="José Murilo">
+  <meta name="description" content="Atividade Prática 04 - Curso DS 2024.1 - Disciplina: PNTWeb Avançado. Prof. Fagner Pontes.">
+  <title>PNTWeb Avançado</title>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <small>Monteiro/PB, 25 de Abril de 2024.</small><br>
+  <small>Disciplina: PNTWeb Avançado</small>
+  <small>- Professor: Fagner Pontes.</small><br>
+  <small>Discente: José Murilo.</small><br>
+  <small>Polo: ETE Arlindo Ferreira dos Santos - Sertânia/PE.</small>
+  <hr>
+  <h1>Atividade Prática 04</h1>
+  <p>Refazendo a atividade anterior, utilizando o auto-preenchimento dos campos "select" com JQuery.</p>
+  <hr>
+  <h2>Selecione os Personagens:</h2>
+
+
+  <h3>Personagem 1:</h3>
+  <p>
+    Jedi: <select name="" id="sJedi"></select>
+  </p>
+
+  <h3>Personagem 2:</h3>
+  <p>
+    Sith: <select name="" id="sSith"></select>
+  </p>
+
+  <button id="btnMostrar">Mostrar Personagens</button>
+
+  <hr>
+  <div id="outJ"></div>
+  <div id="outS"></div>
+
+
+
+  <script>
+    // Criando uma Classe Personagem;
+    class Personagem {
+      constructor(tipo, nome, forca) {
+        this._tipo = tipo;
+        this._nome = nome;
+        this._forca = forca;
+      }
+
+      // Meios de acessos ao Encapsulamento;
+      get tipo() {
+        return this._tipo;
+      }
+      get nome() {
+        return this._nome;
+      }
+      get forca() {
+        return this._forca;
+      }
+    }
+
+
+    // Ação de jogar os dados. O valor da soma será a força do Personagem;
+    function jogarDados() {
+      let somaDasjogadas = 0;
+      const dados = 3;
+
+      for (let giros = 0; giros < dados; giros++) {
+        somaDasjogadas += Math.floor(Math.random() * 6 + 1);
+      }
+
+      return somaDasjogadas;
+    }
+
+
+    // Um array para guardar os personagens;
+    let listaPersonagens = [];
+
+
+    // Criar os personagens;
+    const personagem1 = new Personagem("Jedi", "Mestre Yoda", jogarDados());
+    const personagem2 = new Personagem("Jedi", "Léia Organa", jogarDados());
+    const personagem3 = new Personagem("Sith", "Kilo Ren", jogarDados());
+    const personagem4 = new Personagem("Sith", "Pong Krell", jogarDados());
+
+
+    // Guardando os Pensagens na listaPersonagens;
+    listaPersonagens.push(personagem1);
+    listaPersonagens.push(personagem2);
+    listaPersonagens.push(personagem3);
+    listaPersonagens.push(personagem4);
+
+
+    // Usando JQuery a partir daqui;
+    // Inserindo os Personagens nas opções do select;
+    $('<option>' + listaPersonagens[0].nome + '</option>').appendTo('#sJedi').attr('value', 0);
+    $('<option>' + listaPersonagens[1].nome + '</option>').appendTo('#sJedi').attr('value', 1);
+    $('<option value="2">' + listaPersonagens[2].nome + '</option>').appendTo('#sSith');
+    $('<option value="3">' + listaPersonagens[3].nome + '</option>').appendTo('#sSith');
+
+
+    // Ação para o botão;
+    $('#btnMostrar').click(mostrarPersonagens);
+
+
+    // Enviar informações para a tela;
+    function mostrarPersonagens() {
+      // Pegar quem está selecionado;
+      const jedi = listaPersonagens[$('#sJedi :selected').attr('value')];
+      const sith = listaPersonagens[$('#sSith :selected').attr('value')];
+
+      // Para a tela;
+      $('#outJ').html('<p>Tipo: ' + jedi.tipo + '</p><p>Nome: ' + jedi.nome + '</p><p>Força: ' + jedi.forca + '</p><br>');
+      $('#outS').html('<p>Tipo: ' + sith.tipo + '</p><p>Nome: ' + sith.nome + '</p><p>Força: ' + sith.forca + '</p><br>');
+    }
+  </script>
+</body>
+
+</html>

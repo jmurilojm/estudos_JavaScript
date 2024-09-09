@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplicando Estilo</title>
+</head>
+
+<body>
+  <h1>Desafio Discord - 02</h1>
+  <hr>
+
+  <h2>Estilo com Objeto JS</h2>
+
+  <p id="inTexto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus magni sequi perspiciatis placeat blanditiis rem a vel repellat eveniet consequatur minus impedit est fugiat, magnam quidem labore, consequuntur enim neque.</p>
+  <p id="inTexto2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quis commodi unde minima impedit obcaecati repellat, adipisci? Unde inventore eos eligendi odio dicta sint, architecto, iusto harum ipsa aut, iure.</p>
+
+  <script>
+    // com objeto do tipo class;
+    class Estilo {
+      constructor(cor, tamanho, fonte) {
+        this._cor = cor;
+        this._tamanho = tamanho;
+        this._fonte = fonte;
+      }
+
+      get cor() {
+        return this._cor;
+      }
+      get tamanho() {
+        return this._tamanho;
+      }
+      get fonte() {
+        return this._fonte;
+      }
+    }
+
+    function trocarEstiloDoTexto(id, estiloASerAplicado) {
+      id.style.color = estiloASerAplicado.cor;
+      id.style.fontSize = estiloASerAplicado.tamanho;
+      id.style.fontFamily = estiloASerAplicado.fonte;
+    }
+
+    const inTexto = document.getElementById('inTexto');
+    const meuEstilo = new Estilo('blue', '20px', 'monospace');
+
+    trocarEstiloDoTexto(inTexto, meuEstilo);
+
+
+    // apenas com objeto;
+    const estilizacao = {
+      cor: 'blue',
+      tamanho: '30px',
+      fonte: 'cursive'
+    }
+
+    function atribuirEstilo(id, novoEstilo) {
+      id.style.color = novoEstilo.cor;
+      id.style.fontSize = novoEstilo.tamanho;
+      id.style.fontFamily = novoEstilo.fonte;
+    }
+
+    const elemento = document.getElementById('inTexto2');
+    atribuirEstilo(elemento, estilizacao);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="José Murilo">
+  <meta name="description" content="Atividade Prática 02 - Curso DS 2024.1 - Disciplina: PNTWeb Avançado. Prof. Fagner Pontes.">
+  <title>PNTWeb Avançado</title>
+  
+  <style>
+    .card{
+      border: 1px solid black;
+      width: 160px;
+      height: 250px;
+      border-radius: 10px;
+      float: left;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .card-p1{
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7AyxJZED1uAul_Ja55ZlitRPviMS66-nQ74RzUTHzNtbgU8LknXy5u28&s=10");
+    }
+    .card-p2{
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf6RCITWs48-WlkaeYKC41ia-8rlGKQ7Rn3A&usqp=CAU");
+    }
+    .card-p1, .card-p2{
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .vencedor{
+      box-shadow: 0 0 5px green;
+    }
+    .perdedor{
+      box-shadow: 0 0 5px red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card card-p1" id="cardP1">
+    <img src="" alt="">
+  </div>
+  <div class="card card-p2" id="cardP2">
+    
+  </div>
+
+  <p>Personagem 1: <span id="outP1">-----</span></p>
+  <p>Personagem 2: <span id="outP2">-----</span></p>
+  <p>Resultado: <span id="outResultado">---</span></p>
+
+  <button onclick="mostrarPersonagens()">Mostrar Personagens</button>
+
+
+  <script>
+    // Criando o objeto personagem
+    class Personagem {
+      constructor(tipo, nome, forca) {
+        this.tipo = tipo;
+        this.nome = nome;
+        this.forca = forca;
+      }
+    }
+
+
+    // Acao de jogar os dados. O valor da soma sera a forca do personagem
+    function jogarDados() {
+      let somaDasjogadas = 0;
+      const dados = 3;
+
+      for (let giros = 0; giros < dados; giros++) {
+        somaDasjogadas += Math.floor(Math.random() * 6 + 1);
+      }
+
+      return somaDasjogadas;
+    }
+
+
+    // Criar os personagens
+    const p1 = new Personagem("Água", "Godzilla", jogarDados());
+    const p2 = new Personagem("Terra", "Kong", jogarDados());
+
+
+    // Enviar infromacoes para a tela
+    function mostrarPersonagens() {
+      const outP1 = document.getElementById("outP1");
+      const outP2 = document.getElementById("outP2");
+      const outResultado = document.getElementById('outResultado');
+      
+      const dadosP1 = jogarDados();
+      const dadosP2 = jogarDados();
+      const resultado = validarResultado(dadosP1, dadosP2);
+
+      outP1.innerHTML = `Tipo: ${p1.tipo} / Nome: ${p1.nome} / Força: ${dadosP1}`;
+      outP2.innerHTML = `Tipo: ${p2.tipo} / Nome: ${p2.nome} / Força: ${dadosP2}`;
+      outResultado.innerHTML = resultado;
+    }
+    
+    // Validacao de resultado e atribuição de destaque
+    function validarResultado(a, b){
+      const cardP1 = document.getElementById("cardP1");
+      const cardP2 = document.getElementById("cardP2");
+      
+      if(a > b){
+        cardP1.classList.remove('perdedor');
+        cardP1.classList.add('vencedor')
+        
+        cardP2.classList.remove('vencedor');
+        cardP2.classList.add('perdedor');
+        return `${p1.nome} é o Vencedor!`;
+      } else if(a < b){
+        cardP1.classList.remove('vencedor');
+        cardP1.classList.add('perdedor');
+        
+        cardP2.classList.remove('perdedor');
+        cardP2.classList.add('vencedor');
+        return `${p2.nome} é o Vencedor!`;
+      } else{
+        cardP1.classList.remove('vencedor');
+        cardP1.classList.remove('perdedor');
+        
+        cardP2.classList.remove('vencedor');
+        cardP2.classList.remove('perdedor');
+        return `Empatado!`;
+      }
+    }
+  </script>
+</body>
+
+</html>

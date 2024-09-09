@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iterando Objeto</title>
+
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      height: 100vh;
+      padding: 20px;
+      background-color: lightgray;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-content: flex-start;
+      justify-content: center;
+      padding-top: 30px;
+      border-top: 1px solid black;
+    }
+
+    .cards {
+      border-radius: 10px;
+      text-align: center;
+      width: 150px;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 10px;
+      background-color: white;
+      box-shadow: 0 0 5px dimgray;
+    }
+
+    .cards img {
+      border-radius: 50%;
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Desafio Discord - 01</h1>
+  <br>
+  <p>Iterar sobre um objeto e exibir seus dados.</p>
+  
+  <main class="app" id="app">
+
+  </main>
+
+
+  <script>
+    const cadastros = [
+      {
+        nome: 'Fulano',
+        idade: 25,
+        cidade: 'Sumé/PB'
+      },
+      {
+        nome: 'Cicrano',
+        idade: 21,
+        cidade: 'Serra Branca/PB'
+      },
+      {
+        nome: 'Beltrano',
+        idade: 38,
+        cidade: 'Campina Grande/PB'
+      },
+      {
+        nome: 'Olavo',
+        idade: 19,
+        cidade: 'Zabelê/PB'
+      },
+      {
+        nome: 'Joaquim',
+        idade: 42,
+        cidade: 'Natal/RN'
+      },
+      {
+        nome: 'Simon',
+        idade: 73,
+        cidade: 'Maceió/AL'
+      },
+      {
+        nome: 'Riva',
+        idade: 31,
+        cidade: 'Caicó/RN'
+      },
+      {
+        nome: 'Jericó',
+        idade: 54,
+        cidade: 'Souza/PB'
+      },
+      {
+        nome: 'Tadeu',
+        idade: 27,
+        cidade: 'São Luiz/MA'
+      },
+      {
+        nome: 'Geli',
+        idade: 28,
+        cidade: 'Sertânia/PE'
+      },
+      ];
+
+    cadastros.forEach((dado, i) => {
+      const informacoes = `Nome: ${dado.nome} - Idade: ${dado.idade} - Cidade: ${dado.cidade}`; // usando "template string" para facilitar a edicao dos dados;
+      console.log(informacoes);
+      
+      const app = document.getElementById('app');
+
+      app.innerHTML += `<div class="cards">
+      <p><img src="https://picsum.photos/10${i}"></p>
+      <p>Nome: <span>${dado.nome}</span></p>
+      <p>Idade: <span>${dado.idade}</span></p>
+      <p>Cidade: <span>${dado.cidade}</span></p>
+    </div>`;
+
+    });
+  </script>
+
+</body>
+
+</html>

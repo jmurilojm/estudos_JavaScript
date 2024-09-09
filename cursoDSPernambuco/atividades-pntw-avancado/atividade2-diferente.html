@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Batalha - Jedi x Sith</h1>
+  <hr>
+  
+  <p>Poder de Jedi: <span id="sJedi">0</span></p>
+  <p>Poder de Sith: <span id="sSith">0</span></p>
+  <p>Resultado: <span id="sResultado">-----------</span></p>
+  
+  <button onclick="batalhar()">Click para Batalhar</button>
+
+
+<script>
+  function batalhar(){
+    let poderJedi = 0;
+    let poderSith = 0;
+    
+    for(let giros = 0; giros < 3; giros++){
+      poderJedi += Math.floor(Math.random() * 6 + 1);
+      poderSith += Math.floor(Math.random() * 6 + 1);
+    }
+    
+    if(poderJedi > poderSith){
+      document.getElementById('sResultado').innerText = 'Jedi';
+    }
+    else if(poderJedi < poderSith){
+      document.getElementById('sResultado').innerText = 'Sith';
+    }
+    else{
+      document.getElementById('sResultado').innerText = 'Empate!'
+    }
+    
+    document.getElementById('sJedi').innerText = poderJedi;
+    document.getElementById('sSith').innerText = poderSith;
+  }
+</script>
+</body>
+
+</html>

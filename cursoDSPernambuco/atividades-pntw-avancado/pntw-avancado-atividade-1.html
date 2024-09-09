@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="José Murilo">
+  <meta name="description" content="Atividade Prática 01 - Curso DS 2024.1 - Disciplina: PNTWeb Avançado. Prof. Fagner Pontes.">
+  <title>PNTWeb Avançado</title>
+</head>
+<body>
+  <small>Monteiro/PB, 04 de Abril de 2024.</small><br>
+  <small>Disciplina: PNTWeb Avançado</small>
+  <small>- Professor: Fagner Pontes.</small><br>
+  <small>Discente: José Murilo.</small><br>
+  <small>Polo: ETE Arlindo Ferreira dos Santos - Sertânia/PE.</small>
+  <hr>
+  <h1>Atividade Prática 01</h1>
+  <hr>
+  <p>Como integrar uma Ação de Clique em um elemento HTML e em seguida ser aprentada uma mensagem?</p>
+  
+  
+  <button onclick="mostrarMsm()">Clique Aqui - 01</button>
+  <button id="botao2">Clique Aqui - 02</button>
+  <button id="botao3">Clique aqui - 03</button>
+  
+  
+  <script>
+    // Esta função será executada quando o Botão 1 for clicado.
+    function mostrarMsm(){
+      alert('Botão - 01');
+    }
+    
+    // Esta função será executada quando o Botão 2 for clicado.
+    const b2 = document.getElementById('botao2');
+    
+    b2.onclick = function exibirMsm(){
+      alert('Botão - 02');
+    }
+    
+    // Esta função será executada quando o Botão 3 for clicado.
+    const b3 = document.querySelector('#botao3');
+    b3.addEventListener('click', gerarMsm);
+    
+    function gerarMsm(){
+      alert('Botão - 03');
+    }
+    
+    /*
+    EXPLICAÇÃO DAS ATRIBUIÇÕES - O que entendo delas:
+    
+    
+    A 1ª expressão é uma forma mais simples que, para iniciantes igual
+    a eu, poderá fixar de forma mais fácil.
+    A 3ª forma fixei com alguns dias de treino e a
+    2ª para mim é novidade.
+    
+    
+    -> 1º CASO: na própria tag HTML é inserida a
+    propriedade "onclick" que recebe um valor.
+    Esse valor é o nome de função que está 
+    criada dentro do espaço dos códigos JavaScript.
+    Quando o botão é clicado, ele entende que deve 
+    buscar essa função e executá-la.
+    
+    -> 2º CASO: desta vez o botão recebe uma identificação, 
+    um ID. Com isso, é possível armazenar esse botão em 
+    uma variável criada no JavaScript. Para isso, 
+    precisa chamar o documento, depois pegar o botão 
+    através desse seu ID, dessa forma: 
+    document.getElementById("nomeDoId")
+    Feito isso, pega-se a variável e com um "ponto" 
+    pode ser chamada a propriedade de "onclick" que 
+    irá receber a função que esse botão irá executar.
+    Esse aprendi hoje, através de uma live.
+    
+    -> 3º CASO: por fim, nesse último exemplo, também foi atribuído 
+    um ID para o botão, só que desta vez o botão será 
+    chamado, para o JavaScript, utilizando um metodo 
+    diferente: document.querySelector("#nomeDoId")
+    A diferenca é que apenas com esse metodo eu posso chamar 
+    ou um ID, ou uma Classe, ou uma Tag e fazer outras formas de chamadas.
+    É algo diferente e com mais conceitos.
+    Ainda estou aprendendo como utilizar a passagem de mais parâmetros 
+    nesse metodo.
+    Continuando...
+    Depois de guardar o elemento na variável, da mesma forma 
+    que foi feito no 2º caso, pega-se a variável e mais 
+    uma vez com um "ponto" pode-se chamar o metodo: 
+    addEventListener("nomeDaAcao", "nomeDaFuncao")
+    Esse metodo deve receber dois parametros: um com o nome da ação que 
+    deverá ser atribuida ao alemento que esta guardado na 
+    variável, e o outro será o nome da função que deve ser chamada ou 
+    ate mesmo a função.
+    */
+  </script>
+</body>
+</html>
