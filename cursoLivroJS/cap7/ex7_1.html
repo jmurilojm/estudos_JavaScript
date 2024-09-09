@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exemplo 7.1</title>
+</head>
+
+<body>
+<script>
+  /*
+  Função que recebe 02 parâmetros para realizar o calculo de média e informar se está ou não aprovado.
+  
+  Vamos construir um primeiro exemplo, para realizar uma tarefa simples,
+  usando a passagem de parâmetros.
+  */
+  
+  const prova = Number(prompt('Nota da prova:'))
+  
+  calcularMedia(prova, 7)
+  
+  function calcularMedia(nota, media){
+    if(nota >= media){
+      return alert('Aprovado!')
+    }
+    
+    return alert('Reprovado!')
+  }
+  
+</script>
+</body>
+
+</html>
