@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Início</title>
+</head>
+
+<body>
+  
+  <h1>Início - DOM</h1>
+  <hr>
+  
+  <form action="">
+    <input type="text" name="" id="txtEntrada" placeholder="Digite seu nome">
+    <input type="submit" value="Processar" onclick="processando()">
+  </form>
+  
+  <p>> <span id="saida"></span></p>
+  
+
+
+  <script>
+    /*
+    let roupa = 20
+
+    //a vista 10% desconto. a prazo em 4x
+    let aVista = roupa - (roupa * .10)
+    let aPrazo = roupa / 4
+
+    let opcao = aPrazo
+
+    console.log(opcao)
+    */
+    
+    
+    function processando(){
+      event.preventDefault()
+      
+      const nome = document.getElementById('txtEntrada').value
+      let campo = document.getElementById('saida')
+      
+      
+      //alert(nome + ' clicou!')
+      campo.innerText = nome
+    }
+  </script>
+</body>
+
+</html>
